@@ -2,42 +2,66 @@
 
 extern SemaphoreHandle_t g_trafficMutex;
 extern int g_speedBands[3];
-extern volatile int g_rfidUartFlag; // 引入标记
+extern volatile int g_rfidUartFlag;
+
+extern volatile int g_mcxcValue;
+extern volatile bool g_newMcxcData;
 
 void taskUARTComm(void* pvParameters) {
-  Serial.println("[UART] UART task started");
-  int sendCount = 0;
+  uint32_t lastTx = 0;
+  Serial1.setTimeout(50);
 
   for (;;) {
-    int localSpeeds[3] = {0, 0, 0};
-    int rfidStatus = g_rfidUartFlag; 
+    // --- 📥 RX Logic: Check for incoming data from MCXC444 ---
+    while (Serial1.available() > 0) {
+      String rxStr = Serial1.readStringUntil('\n');
+      rxStr.trim();
 
-    if (g_trafficMutex != NULL) {
-      if (xSemaphoreTake(g_trafficMutex, pdMS_TO_TICKS(50)) == pdTRUE) {
-        for(int i=0; i<3; i++) localSpeeds[i] = g_speedBands[i];
-        xSemaphoreGive(g_trafficMutex);
+      if (rxStr.length() > 0) {
+        int tempVal = rxStr.toInt();
+        
+        // 💡 New Validation: Range 0 to 9 for Speedbands
+        if (tempVal >= 0 && tempVal <= 9) {
+          g_mcxcValue = tempVal;
+          g_newMcxcData = true; // Trigger Telegram update
+          Serial.printf("[UART RX] Valid Speedband Received: %d\n", g_mcxcValue);
+        } else {
+          Serial.printf("[UART RX] Invalid Speedband Range: %s\n", rxStr.c_str());
+        }
       }
     }
 
-    // --- 强制发送 4 个变量 ---
-    Serial1.print("SPEEDS:");
-    Serial1.print(localSpeeds[0]);
-    Serial1.print(",");
-    Serial1.print(localSpeeds[1]);
-    Serial1.print(",");
-    Serial1.print(localSpeeds[2]);
-    Serial1.print(",");
-    Serial1.println(rfidStatus); // 最后这个是 0 或 1
+    // --- 📤 TX Logic: Broadcast to MCXC444 every 5 seconds ---
+    if (millis() - lastTx >= 5000) {
+      int localSpeeds[3] = {0, 0, 0};
+      int rfidStatus = g_rfidUartFlag;
 
-    // 发了 1 之后立刻复位
-    if (rfidStatus == 1) {
-      g_rfidUartFlag = 0;
+      // Safely access shared traffic data from LTA task
+      if (xSemaphoreTake(g_trafficMutex, pdMS_TO_TICKS(50)) == pdTRUE) {
+        for (int i = 0; i < 3; i++) localSpeeds[i] = g_speedBands[i];
+        xSemaphoreGive(g_trafficMutex);
+      }
+
+      // Send to MCXC444 in format: s1,s2,s3,rfid\n
+      Serial1.printf("%d,%d,%d,%d\n",
+                     localSpeeds[0],
+                     localSpeeds[1],
+                     localSpeeds[2],
+                     rfidStatus);
+
+      // Reset RFID flag after successful transmission
+      if (rfidStatus == 1) g_rfidUartFlag = 0;
+
+      Serial.printf("[UART TX] Broadcast Sent: %d,%d,%d,%d\n",
+                    localSpeeds[0],
+                    localSpeeds[1],
+                    localSpeeds[2],
+                    rfidStatus);
+
+      lastTx = millis();
     }
 
-    sendCount++;
-    // 强制更新控制台打印的格式，带上 rfidStatus
-    Serial.printf("[UART TX] Sent #%d: SPEEDS:%d,%d,%d,%d\n", sendCount, localSpeeds[0], localSpeeds[1], localSpeeds[2], rfidStatus);
-
-    vTaskDelay(pdMS_TO_TICKS(5000)); 
+    // Task heartbeat: check RX buffer every 50ms
+    vTaskDelay(pdMS_TO_TICKS(50));
   }
 }
