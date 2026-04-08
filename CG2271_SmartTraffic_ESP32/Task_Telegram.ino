@@ -28,7 +28,7 @@ void taskTelegramAlert(void* pvParameters) {
         String messageText;
         if (band > 7) {
           messageText = "🚨%20*TRAFFIC%20WARNING*%20🚨%0A";
-          messageText += "High%20Congestion%20Detected!%0A";
+          messageText += "High%20Speed%20Detected!%0A";
           messageText += "Current%20Speedband:%20" + String(band);
         } else {
           messageText = "Current%20Speedband:%20" + String(band);
