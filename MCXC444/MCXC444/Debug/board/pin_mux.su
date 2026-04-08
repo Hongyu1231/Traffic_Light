@@ -1,0 +1,7 @@
+C:\Users\Yue Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_clock.h:437:20:CLOCK_EnableClock	24	static
+C:\Users\Yue Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_port.h:463:20:PORT_SetPinMux	24	static
+../board/pin_mux.c:178:6:BOARD_InitBootPins	8	static
+../board/pin_mux.c:201:6:BOARD_InitDEBUG_UARTPins	8	static
+../board/pin_mux.c:241:6:BOARD_InitSWD_DEBUGPins	8	static
+../board/pin_mux.c:272:6:BOARD_InitLEDsPins	8	static
+../board/pin_mux.c:308:6:BOARD_InitBUTTONsPins	8	static

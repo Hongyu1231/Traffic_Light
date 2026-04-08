@@ -1,0 +1,3 @@
+../device/system_MCXC444.c:64:6:SystemInit	8	static
+../device/system_MCXC444.c:84:6:SystemCoreClockUpdate	16	static
+../device/system_MCXC444.c:110:29:SystemInitHook	8	static

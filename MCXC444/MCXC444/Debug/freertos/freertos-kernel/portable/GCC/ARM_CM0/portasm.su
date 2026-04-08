@@ -1,0 +1,9 @@
+../freertos/freertos-kernel/portable/GCC/ARM_CM0/portasm.c:138:10:vRestoreContextOfFirstTask	0	static
+../freertos/freertos-kernel/portable/GCC/ARM_CM0/portasm.c:165:12:xIsPrivileged	0	static
+../freertos/freertos-kernel/portable/GCC/ARM_CM0/portasm.c:188:6:vRaisePrivilege	0	static
+../freertos/freertos-kernel/portable/GCC/ARM_CM0/portasm.c:205:6:vResetPrivilege	0	static
+../freertos/freertos-kernel/portable/GCC/ARM_CM0/portasm.c:222:6:vStartFirstTask	0	static
+../freertos/freertos-kernel/portable/GCC/ARM_CM0/portasm.c:243:10:ulSetInterruptMask	0	static
+../freertos/freertos-kernel/portable/GCC/ARM_CM0/portasm.c:258:6:vClearInterruptMask	0	static
+../freertos/freertos-kernel/portable/GCC/ARM_CM0/portasm.c:392:10:PendSV_Handler	0	static
+../freertos/freertos-kernel/portable/GCC/ARM_CM0/portasm.c:498:10:SVC_Handler	0	static

@@ -1,0 +1,2 @@
+C:\Users\Yue Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_clock.h:469:20:CLOCK_SetLpuart0Clock	16	static
+../board/board.c:25:6:BOARD_InitDebugConsole	16	static

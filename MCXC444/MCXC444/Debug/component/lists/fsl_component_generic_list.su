@@ -1,0 +1,15 @@
+C:\Users\Yue Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_common_arm.h:908:24:DisableGlobalIRQ	16	static
+C:\Users\Yue Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_common_arm.h:934:20:EnableGlobalIRQ	24	static
+../component/lists/fsl_component_generic_list.c:31:22:LIST_Error_Check	24	static
+../component/lists/fsl_component_generic_list.c:79:6:LIST_Init	16	static
+../component/lists/fsl_component_generic_list.c:102:15:LIST_GetList	16	static
+../component/lists/fsl_component_generic_list.c:123:15:LIST_AddTail	32	static
+../component/lists/fsl_component_generic_list.c:169:15:LIST_AddHead	32	static
+../component/lists/fsl_component_generic_list.c:215:23:LIST_RemoveHead	24	static
+../component/lists/fsl_component_generic_list.c:263:23:LIST_GetHead	16	static
+../component/lists/fsl_component_generic_list.c:283:23:LIST_GetNext	16	static
+../component/lists/fsl_component_generic_list.c:303:23:LIST_GetPrev	16	static
+../component/lists/fsl_component_generic_list.c:327:15:LIST_RemoveElement	40	static
+../component/lists/fsl_component_generic_list.c:404:15:LIST_AddPrevElement	40	static
+../component/lists/fsl_component_generic_list.c:476:10:LIST_GetSize	16	static
+../component/lists/fsl_component_generic_list.c:495:10:LIST_GetAvailableSize	16	static

@@ -1,0 +1,11 @@
+../freertos/freertos-kernel/portable/GCC/ARM_CM0/port.c:614:32:vPortSetupTimerInterrupt	8	static
+../freertos/freertos-kernel/portable/GCC/ARM_CM0/port.c:643:13:prvTaskExitError	16	static
+../freertos/freertos-kernel/portable/GCC/ARM_CM0/port.c:775:6:vPortYield	8	static
+../freertos/freertos-kernel/portable/GCC/ARM_CM0/port.c:788:6:vPortEnterCritical	8	static
+../freertos/freertos-kernel/portable/GCC/ARM_CM0/port.c:801:6:vPortExitCritical	8	static
+../freertos/freertos-kernel/portable/GCC/ARM_CM0/port.c:814:6:SysTick_Handler	16	static
+../freertos/freertos-kernel/portable/GCC/ARM_CM0/port.c:840:6:vPortSVCHandler_C	24	static
+../freertos/freertos-kernel/portable/GCC/ARM_CM0/port.c:1200:19:pxPortInitialiseStack	24	static
+../freertos/freertos-kernel/portable/GCC/ARM_CM0/port.c:1265:12:xPortStartScheduler	16	static
+../freertos/freertos-kernel/portable/GCC/ARM_CM0/port.c:1345:6:vPortEndScheduler	8	static
+../freertos/freertos-kernel/portable/GCC/ARM_CM0/port.c:1545:12:xPortIsInsideInterrupt	16	static
