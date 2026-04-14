@@ -96,6 +96,9 @@ void taskUARTComm(void* pvParameters) {
           continue;
         }
 
+        Serial.printf("[UART RX] Encrypted: %s\n", rxStr.c_str());
+        Serial.printf("[UART RX] Decrypted: %s\n", plainRx.c_str());
+
         if (plainRx.startsWith("MCX:")) {
           plainRx.remove(0, 4);
           plainRx.trim();
@@ -136,9 +139,12 @@ void taskUARTComm(void* pvParameters) {
       // Reset RFID flag after successful transmission
       if (rfidStatus == 1) g_rfidUartFlag = 0;
 
-      Serial.printf("[UART TX] Sent secure #%lu: %s\n",
+      Serial.printf("[UART TX] Plain #%lu: %s\n",
                     (unsigned long)txCount,
                     plainTx.c_str());
+      Serial.printf("[UART TX] Encrypted #%lu: %s",
+                    (unsigned long)txCount,
+                    securePacket.c_str());
 
       lastTx = millis();
     }

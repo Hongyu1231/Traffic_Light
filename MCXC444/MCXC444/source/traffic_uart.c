@@ -67,7 +67,8 @@ static bool makeSecurePacket(const char *plain_text, char *out_packet, size_t ou
 
 static bool decodeSecurePacket(const char *packet, char *plain_text, size_t plain_size)
 {
-    size_t packet_len = strlen(packet);
+    char clean_packet[MAX_MSG_LEN];
+    size_t packet_len;
     size_t key_len = strlen(UART_KEY);
     const char *checksum_separator = NULL;
     uint8_t expected_checksum;
@@ -77,29 +78,41 @@ static bool decodeSecurePacket(const char *packet, char *plain_text, size_t plai
     int hi;
     int lo;
 
+    strncpy(clean_packet, packet, sizeof(clean_packet));
+    clean_packet[sizeof(clean_packet) - 1U] = '\0';
+    clean_packet[strcspn(clean_packet, "\r\n")] = '\0';
+
+    packet = clean_packet;
+    packet_len = strlen(packet);
+
     if ((packet_len < 8U) || (strncmp(packet, "SEC:", 4U) != 0)) {
+        PRINTF("Secure decode failed: missing SEC prefix\r\n");
         return false;
     }
 
     checksum_separator = strrchr(packet, ':');
     if ((checksum_separator == NULL) || (checksum_separator <= (packet + 4)) ||
         ((size_t)(checksum_separator - packet + 2U) >= packet_len)) {
+        PRINTF("Secure decode failed: bad checksum separator\r\n");
         return false;
     }
 
     hi = fromHexNibble(checksum_separator[1]);
     lo = fromHexNibble(checksum_separator[2]);
     if ((hi < 0) || (lo < 0)) {
+        PRINTF("Secure decode failed: checksum is not hex\r\n");
         return false;
     }
     expected_checksum = (uint8_t)((hi << 4) | lo);
 
     cipher_len = (size_t)(checksum_separator - (packet + 4));
     if ((cipher_len % 2U) != 0U) {
+        PRINTF("Secure decode failed: odd encrypted length\r\n");
         return false;
     }
 
     if (((cipher_len / 2U) + 1U) > plain_size) {
+        PRINTF("Secure decode failed: plaintext buffer too small\r\n");
         return false;
     }
 
@@ -109,6 +122,7 @@ static bool decodeSecurePacket(const char *packet, char *plain_text, size_t plai
         uint8_t encrypted;
 
         if ((byte_hi < 0) || (byte_lo < 0)) {
+            PRINTF("Secure decode failed: encrypted payload is not hex\r\n");
             return false;
         }
 
@@ -120,7 +134,14 @@ static bool decodeSecurePacket(const char *packet, char *plain_text, size_t plai
 
     plain_text[plain_index] = '\0';
 
-    return actual_checksum == expected_checksum;
+    if (actual_checksum != expected_checksum) {
+        PRINTF("Secure decode failed: checksum mismatch expected=%02X actual=%02X\r\n",
+               expected_checksum,
+               actual_checksum);
+        return false;
+    }
+
+    return true;
 }
 
 void sendMessage(const char *message)
@@ -214,10 +235,15 @@ void parseUARTTask(void *p)
             int s3 = 0;
             int rfid = 0;
 
+            msg.message[strcspn(msg.message, "\r\n")] = '\0';
+            PRINTF("UART RX encrypted: %s\r\n", msg.message);
+
             if (!decodeSecurePacket(msg.message, plain_message, sizeof(plain_message))) {
                 PRINTF("Rejected invalid secure UART packet: %s\r\n", msg.message);
                 continue;
             }
+
+            PRINTF("UART RX decrypted: %s\r\n", plain_message);
 
             if (sscanf(plain_message, "%d,%d,%d,%d", &s1, &s2, &s3, &rfid) == 4) {
                 current_speed_bands[0] = s1;
