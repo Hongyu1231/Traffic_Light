@@ -30,6 +30,8 @@
 
 #define T_MAX_MS            15000U
 #define T_MIN_MS            5000U
+#define PEDESTRIAN_GREEN_MS 10000U
+#define EXTENDED_PEDESTRIAN_GREEN_MS 15000U
 #define S_MAX_BAND          8
 #define S_MIN_BAND          1
 
@@ -46,5 +48,6 @@ typedef struct tm {
 extern SemaphoreHandle_t sema;
 extern QueueHandle_t queue;
 extern volatile int current_speed_bands[3];
+extern volatile int authorized_rfid_request;
 
 #endif /* APP_CONTEXT_H_ */

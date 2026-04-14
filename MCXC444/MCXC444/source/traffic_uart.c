@@ -1,5 +1,6 @@
 #include "traffic_uart.h"
 
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -9,6 +10,15 @@
 #include "fsl_debug_console.h"
 
 static char send_buffer[MAX_MSG_LEN];
+
+void sendMessage(const char *message)
+{
+    strncpy(send_buffer, message, MAX_MSG_LEN);
+    send_buffer[MAX_MSG_LEN - 1U] = '\0';
+
+    UART2->C2 |= UART_C2_TIE_MASK;
+    UART2->C2 |= UART_C2_TE_MASK;
+}
 
 void initUART2(uint32_t baud_rate)
 {
@@ -89,17 +99,40 @@ void parseUARTTask(void *p)
             int s1 = 0;
             int s2 = 0;
             int s3 = 0;
+            int rfid = 0;
 
-            if (sscanf(msg.message, "SPEEDS:%d,%d,%d", &s1, &s2, &s3) == 3) {
+            if (sscanf(msg.message, "%d,%d,%d,%d", &s1, &s2, &s3, &rfid) == 4) {
                 current_speed_bands[0] = s1;
                 current_speed_bands[1] = s2;
                 current_speed_bands[2] = s3;
+                authorized_rfid_request = (rfid == 1) ? 1 : 0;
 
-                PRINTF("Updated Traffic Speeds -> R1: %d, R2: %d, R3: %d\r\n",
+                PRINTF("Updated Traffic Speeds -> R1: %d, R2: %d, R3: %d, RFID: %d\r\n",
                        current_speed_bands[0],
                        current_speed_bands[1],
-                       current_speed_bands[2]);
+                       current_speed_bands[2],
+                       authorized_rfid_request);
+            } else {
+                PRINTF("Invalid UART message: %s\r\n", msg.message);
             }
         }
+    }
+}
+
+void sendRandomTask(void *p)
+{
+    char buffer[MAX_MSG_LEN];
+
+    (void)p;
+    srand(1234);
+
+    while (1) {
+        int value = (rand() % 10);
+
+        snprintf(buffer, sizeof(buffer), "%d\n", value);
+        sendMessage(buffer);
+        PRINTF("Sent to ESP32: %d\r\n", value);
+
+        vTaskDelay(pdMS_TO_TICKS(5000U));
     }
 }
