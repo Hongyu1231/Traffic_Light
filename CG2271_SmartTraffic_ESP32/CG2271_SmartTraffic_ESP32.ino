@@ -27,6 +27,7 @@ void setup() {
   Serial.println("\n--- System Booting: MCXC Feedback Mode ---");
 
   Serial1.begin(9600, SERIAL_8N1, 18, 17);
+  Serial.println("[UART] Serial1 started on TX=17 RX=18 @ 9600 8N1");
   
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) { delay(500); Serial.print("."); }

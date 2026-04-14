@@ -1,5 +1,6 @@
 #include "traffic_uart.h"
 
+#include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -10,6 +11,117 @@
 #include "fsl_debug_console.h"
 
 static char send_buffer[MAX_MSG_LEN];
+static const char UART_KEY[] = "CG2271_UART_KEY";
+
+static char toHexNibble(uint8_t value)
+{
+    value &= 0x0FU;
+    return (value < 10U) ? (char)('0' + value) : (char)('A' + value - 10U);
+}
+
+static int fromHexNibble(char value)
+{
+    if ((value >= '0') && (value <= '9')) {
+        return value - '0';
+    }
+    if ((value >= 'A') && (value <= 'F')) {
+        return value - 'A' + 10;
+    }
+    if ((value >= 'a') && (value <= 'f')) {
+        return value - 'a' + 10;
+    }
+    return -1;
+}
+
+static bool makeSecurePacket(const char *plain_text, char *out_packet, size_t out_size)
+{
+    size_t plain_len = strlen(plain_text);
+    size_t key_len = strlen(UART_KEY);
+    uint8_t checksum = 0U;
+    size_t out_index = 0U;
+
+    if (out_size < ((plain_len * 2U) + 9U)) {
+        return false;
+    }
+
+    out_packet[out_index++] = 'S';
+    out_packet[out_index++] = 'E';
+    out_packet[out_index++] = 'C';
+    out_packet[out_index++] = ':';
+
+    for (size_t i = 0U; i < plain_len; i++) {
+        uint8_t encrypted = ((uint8_t)plain_text[i]) ^ ((uint8_t)UART_KEY[i % key_len]);
+        checksum ^= encrypted;
+        out_packet[out_index++] = toHexNibble(encrypted >> 4U);
+        out_packet[out_index++] = toHexNibble(encrypted);
+    }
+
+    out_packet[out_index++] = ':';
+    out_packet[out_index++] = toHexNibble(checksum >> 4U);
+    out_packet[out_index++] = toHexNibble(checksum);
+    out_packet[out_index++] = '\n';
+    out_packet[out_index] = '\0';
+
+    return true;
+}
+
+static bool decodeSecurePacket(const char *packet, char *plain_text, size_t plain_size)
+{
+    size_t packet_len = strlen(packet);
+    size_t key_len = strlen(UART_KEY);
+    const char *checksum_separator = NULL;
+    uint8_t expected_checksum;
+    uint8_t actual_checksum = 0U;
+    size_t cipher_len;
+    size_t plain_index = 0U;
+    int hi;
+    int lo;
+
+    if ((packet_len < 8U) || (strncmp(packet, "SEC:", 4U) != 0)) {
+        return false;
+    }
+
+    checksum_separator = strrchr(packet, ':');
+    if ((checksum_separator == NULL) || (checksum_separator <= (packet + 4)) ||
+        ((size_t)(checksum_separator - packet + 2U) >= packet_len)) {
+        return false;
+    }
+
+    hi = fromHexNibble(checksum_separator[1]);
+    lo = fromHexNibble(checksum_separator[2]);
+    if ((hi < 0) || (lo < 0)) {
+        return false;
+    }
+    expected_checksum = (uint8_t)((hi << 4) | lo);
+
+    cipher_len = (size_t)(checksum_separator - (packet + 4));
+    if ((cipher_len % 2U) != 0U) {
+        return false;
+    }
+
+    if (((cipher_len / 2U) + 1U) > plain_size) {
+        return false;
+    }
+
+    for (size_t i = 0U; i < cipher_len; i += 2U) {
+        int byte_hi = fromHexNibble(packet[4U + i]);
+        int byte_lo = fromHexNibble(packet[4U + i + 1U]);
+        uint8_t encrypted;
+
+        if ((byte_hi < 0) || (byte_lo < 0)) {
+            return false;
+        }
+
+        encrypted = (uint8_t)((byte_hi << 4) | byte_lo);
+        actual_checksum ^= encrypted;
+        plain_text[plain_index] = (char)(encrypted ^ ((uint8_t)UART_KEY[plain_index % key_len]));
+        plain_index++;
+    }
+
+    plain_text[plain_index] = '\0';
+
+    return actual_checksum == expected_checksum;
+}
 
 void sendMessage(const char *message)
 {
@@ -96,12 +208,18 @@ void parseUARTTask(void *p)
         TMessage msg;
 
         if (xQueueReceive(queue, &msg, portMAX_DELAY) == pdTRUE) {
+            char plain_message[MAX_MSG_LEN];
             int s1 = 0;
             int s2 = 0;
             int s3 = 0;
             int rfid = 0;
 
-            if (sscanf(msg.message, "%d,%d,%d,%d", &s1, &s2, &s3, &rfid) == 4) {
+            if (!decodeSecurePacket(msg.message, plain_message, sizeof(plain_message))) {
+                PRINTF("Rejected invalid secure UART packet: %s\r\n", msg.message);
+                continue;
+            }
+
+            if (sscanf(plain_message, "%d,%d,%d,%d", &s1, &s2, &s3, &rfid) == 4) {
                 current_speed_bands[0] = s1;
                 current_speed_bands[1] = s2;
                 current_speed_bands[2] = s3;
@@ -113,7 +231,7 @@ void parseUARTTask(void *p)
                        current_speed_bands[2],
                        authorized_rfid_request);
             } else {
-                PRINTF("Invalid UART message: %s\r\n", msg.message);
+                PRINTF("Invalid decrypted UART message: %s\r\n", plain_message);
             }
         }
     }
@@ -121,6 +239,7 @@ void parseUARTTask(void *p)
 
 void sendRandomTask(void *p)
 {
+    char plain_buffer[MAX_MSG_LEN];
     char buffer[MAX_MSG_LEN];
 
     (void)p;
@@ -129,9 +248,14 @@ void sendRandomTask(void *p)
     while (1) {
         int value = (rand() % 10);
 
-        snprintf(buffer, sizeof(buffer), "%d\n", value);
-        sendMessage(buffer);
-        PRINTF("Sent to ESP32: %d\r\n", value);
+        snprintf(plain_buffer, sizeof(plain_buffer), "MCX:%d", value);
+
+        if (makeSecurePacket(plain_buffer, buffer, sizeof(buffer))) {
+            sendMessage(buffer);
+            PRINTF("Sent secure to ESP32: MCX:%d\r\n", value);
+        } else {
+            PRINTF("Failed to build secure UART packet\r\n");
+        }
 
         vTaskDelay(pdMS_TO_TICKS(5000U));
     }

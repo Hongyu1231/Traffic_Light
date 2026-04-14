@@ -7,31 +7,114 @@ extern volatile int g_rfidUartFlag;
 extern volatile int g_mcxcValue;
 extern volatile bool g_newMcxcData;
 
+static const char UART_KEY[] = "CG2271_UART_KEY";
+
+static char toHexNibble(uint8_t value) {
+  value &= 0x0F;
+  return value < 10 ? (char)('0' + value) : (char)('A' + value - 10);
+}
+
+static int fromHexNibble(char value) {
+  if (value >= '0' && value <= '9') return value - '0';
+  if (value >= 'A' && value <= 'F') return value - 'A' + 10;
+  if (value >= 'a' && value <= 'f') return value - 'a' + 10;
+  return -1;
+}
+
+static String makeSecurePacket(const String& plainText) {
+  String cipherHex = "";
+  uint8_t checksum = 0;
+  size_t keyLen = strlen(UART_KEY);
+
+  cipherHex.reserve(plainText.length() * 2);
+
+  for (size_t i = 0; i < plainText.length(); i++) {
+    uint8_t encrypted = ((uint8_t)plainText[i]) ^ ((uint8_t)UART_KEY[i % keyLen]);
+    checksum ^= encrypted;
+    cipherHex += toHexNibble(encrypted >> 4);
+    cipherHex += toHexNibble(encrypted);
+  }
+
+  String packet = "SEC:";
+  packet += cipherHex;
+  packet += ":";
+  packet += toHexNibble(checksum >> 4);
+  packet += toHexNibble(checksum);
+  packet += "\n";
+  return packet;
+}
+
+static bool decodeSecurePacket(const String& packet, String& plainText) {
+  if (!packet.startsWith("SEC:")) return false;
+
+  int checksumSeparator = packet.lastIndexOf(':');
+  if (checksumSeparator <= 4 || checksumSeparator + 2 >= (int)packet.length()) return false;
+
+  String cipherHex = packet.substring(4, checksumSeparator);
+  if ((cipherHex.length() % 2) != 0) return false;
+
+  int hi = fromHexNibble(packet[checksumSeparator + 1]);
+  int lo = fromHexNibble(packet[checksumSeparator + 2]);
+  if (hi < 0 || lo < 0) return false;
+
+  uint8_t expectedChecksum = (uint8_t)((hi << 4) | lo);
+  uint8_t actualChecksum = 0;
+  size_t keyLen = strlen(UART_KEY);
+
+  plainText = "";
+  plainText.reserve(cipherHex.length() / 2);
+
+  for (size_t i = 0; i < cipherHex.length(); i += 2) {
+    int byteHi = fromHexNibble(cipherHex[i]);
+    int byteLo = fromHexNibble(cipherHex[i + 1]);
+    if (byteHi < 0 || byteLo < 0) return false;
+
+    uint8_t encrypted = (uint8_t)((byteHi << 4) | byteLo);
+    actualChecksum ^= encrypted;
+    plainText += (char)(encrypted ^ ((uint8_t)UART_KEY[(i / 2) % keyLen]));
+  }
+
+  return actualChecksum == expectedChecksum;
+}
+
 void taskUARTComm(void* pvParameters) {
   uint32_t lastTx = 0;
+  uint32_t txCount = 0;
   Serial1.setTimeout(50);
+  Serial.println("[UART] Secure UART task started.");
 
   for (;;) {
-    // --- 📥 RX Logic: Check for incoming data from MCXC444 ---
+    // --- RX Logic: Check for incoming secure data from MCXC444 ---
     while (Serial1.available() > 0) {
       String rxStr = Serial1.readStringUntil('\n');
       rxStr.trim();
 
       if (rxStr.length() > 0) {
-        int tempVal = rxStr.toInt();
+        String plainRx;
+        if (!decodeSecurePacket(rxStr, plainRx)) {
+          Serial.printf("[UART RX] Rejected invalid secure packet: %s\n", rxStr.c_str());
+          continue;
+        }
+
+        if (plainRx.startsWith("MCX:")) {
+          plainRx.remove(0, 4);
+          plainRx.trim();
+        }
+
+        int tempVal = plainRx.toInt();
         
-        // 💡 New Validation: Range 0 to 9 for Speedbands
+        // Accept only valid speed-band values from MCX feedback.
         if (tempVal >= 0 && tempVal <= 9) {
           g_mcxcValue = tempVal;
           g_newMcxcData = true; // Trigger Telegram update
           Serial.printf("[UART RX] Valid Speedband Received: %d\n", g_mcxcValue);
         } else {
-          Serial.printf("[UART RX] Invalid Speedband Range: %s\n", rxStr.c_str());
+          Serial.printf("[UART RX] Invalid Speedband Range: %s\n", plainRx.c_str());
         }
       }
     }
 
-    // --- 📤 TX Logic: Broadcast to MCXC444 every 5 seconds ---
+    // --- TX Logic: Broadcast secure packet to MCXC444 every 5 seconds ---
     if (millis() - lastTx >= 5000) {
       int localSpeeds[3] = {0, 0, 0};
       int rfidStatus = g_rfidUartFlag;
@@ -42,21 +125,20 @@ void taskUARTComm(void* pvParameters) {
         xSemaphoreGive(g_trafficMutex);
       }
 
-      // Send to MCXC444 in format: s1,s2,s3,rfid\n
-      Serial1.printf("%d,%d,%d,%d\n",
-                     localSpeeds[0],
-                     localSpeeds[1],
-                     localSpeeds[2],
-                     rfidStatus);
+      String plainTx = String(localSpeeds[0]) + "," +
+                       String(localSpeeds[1]) + "," +
+                       String(localSpeeds[2]) + "," +
+                       String(rfidStatus);
+      String securePacket = makeSecurePacket(plainTx);
+      Serial1.print(securePacket);
+      txCount++;
 
       // Reset RFID flag after successful transmission
       if (rfidStatus == 1) g_rfidUartFlag = 0;
 
-      Serial.printf("[UART TX] Broadcast Sent: %d,%d,%d,%d\n",
-                    localSpeeds[0],
-                    localSpeeds[1],
-                    localSpeeds[2],
-                    rfidStatus);
+      Serial.printf("[UART TX] Sent secure #%lu: %s\n",
+                    (unsigned long)txCount,
+                    plainTx.c_str());
 
       lastTx = millis();
     }
