@@ -5,6 +5,7 @@
 #include "app_context.h"
 #include "fsl_debug_console.h"
 #include "traffic_gpio.h"
+#include "traffic_ldr.h"
 
 #include "FreeRTOS.h"
 #include "semphr.h"
@@ -21,6 +22,8 @@ void toggleVehicleLight(void *p)
         uint32_t step_size;
         uint32_t dynamic_green_delay;
         uint32_t pedestrian_green_time;
+        uint16_t ldr_raw;
+        uint32_t yellow_delay_ms;
 
         allLEDsOff();
         ledOn(GREEN);
@@ -53,8 +56,15 @@ void toggleVehicleLight(void *p)
 
         vTaskDelay(pdMS_TO_TICKS(dynamic_green_delay));
 
+        ldr_raw = readPhotoresistorAverage();
+        yellow_delay_ms = mapPhotoToYellowDelay(ldr_raw);
+
+        PRINTF("Photoresistor raw=%u, Yellow delay=%u ms\r\n",
+               ldr_raw,
+               (unsigned int)yellow_delay_ms);
+
         ledOn(RED);
-        vTaskDelay(pdMS_TO_TICKS(3000U));
+        vTaskDelay(pdMS_TO_TICKS(yellow_delay_ms));
 
         ledOff(GREEN);
         togglePedestrianLight();

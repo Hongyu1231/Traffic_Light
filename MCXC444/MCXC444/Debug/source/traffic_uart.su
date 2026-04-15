@@ -2,8 +2,12 @@ C:\Users\Yue Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\CMSIS/c
 C:\Users\Yue Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\CMSIS/core_cm0plus.h:795:22:__NVIC_DisableIRQ	16	static
 C:\Users\Yue Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\CMSIS/core_cm0plus.h:848:22:__NVIC_ClearPendingIRQ	16	static
 C:\Users\Yue Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\CMSIS/core_cm0plus.h:866:22:__NVIC_SetPriority	24	static
-../source/traffic_uart.c:14:6:sendMessage	16	static
-../source/traffic_uart.c:23:6:initUART2	24	static
-../source/traffic_uart.c:58:6:UART2_FLEXIO_IRQHandler	272	static
-../source/traffic_uart.c:92:6:parseUARTTask	312	static
-../source/traffic_uart.c:122:6:sendRandomTask	288	static
+../source/traffic_uart.c:16:13:toHexNibble	16	static
+../source/traffic_uart.c:22:12:fromHexNibble	16	static
+../source/traffic_uart.c:36:13:makeSecurePacket	56	static
+../source/traffic_uart.c:68:13:decodeSecurePacket	344	static
+../source/traffic_uart.c:147:6:sendMessage	16	static
+../source/traffic_uart.c:156:6:initUART2	24	static
+../source/traffic_uart.c:191:6:UART2_FLEXIO_IRQHandler	272	static
+../source/traffic_uart.c:225:6:parseUARTTask	568	static
+../source/traffic_uart.c:266:6:sendRandomTask	552	static

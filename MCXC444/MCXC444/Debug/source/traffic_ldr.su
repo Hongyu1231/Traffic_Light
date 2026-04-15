@@ -1,0 +1,4 @@
+../source/traffic_ldr.c:11:6:initPhotoresistor	8	static
+../source/traffic_ldr.c:32:10:readPhotoresistorRaw	8	static
+../source/traffic_ldr.c:42:10:readPhotoresistorAverage	16	static
+../source/traffic_ldr.c:54:10:mapPhotoToYellowDelay	24	static

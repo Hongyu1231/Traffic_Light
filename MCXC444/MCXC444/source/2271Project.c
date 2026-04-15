@@ -25,6 +25,7 @@
 #include "traffic_control.h"
 #include "traffic_uart.h"
 #include "traffic_gpio.h"
+#include "traffic_ldr.h"
 
 int main(void)
 {
@@ -46,6 +47,7 @@ int main(void)
     initGPIO();
     initInterrupt();
     initUART2(BAUD_RATE);
+    initPhotoresistor();
 
     uartTaskOk = xTaskCreate(parseUARTTask, "parseUART", configMINIMAL_STACK_SIZE + 768U, NULL, 2U, NULL);
     lightTaskOk = xTaskCreate(toggleVehicleLight, "toggleVehicleLight", configMINIMAL_STACK_SIZE + 512U, NULL, 1U, NULL);
