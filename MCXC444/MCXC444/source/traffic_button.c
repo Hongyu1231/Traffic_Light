@@ -19,21 +19,21 @@ static bool hallSensorActive(uint32_t pin, uint32_t active_high)
     return active_high ? (pin_state != 0UL) : (pin_state == 0UL);
 }
 
-static uint8_t convertSpeedToBand(uint32_t speed_cm_per_s)
+static uint8_t convertSpeedToBand(uint32_t speed_tenths_cm_per_s)
 {
-    if (speed_cm_per_s < SPEED_MIN_VALID_CM_PER_S) {
+    if (speed_tenths_cm_per_s < SPEED_MIN_VALID_TENTHS_CM_PER_S) {
         return 0U;
     }
 
-    if (speed_cm_per_s > SPEED_HARD_MAX_CM_PER_S) {
+    if (speed_tenths_cm_per_s > SPEED_HARD_MAX_TENTHS_CM_PER_S) {
         return 0U;
     }
 
-    if (speed_cm_per_s >= SPEED_MAX_CM_PER_S) {
+    if (speed_tenths_cm_per_s >= SPEED_MAX_TENTHS_CM_PER_S) {
         return 9U;
     }
 
-    return (uint8_t)(speed_cm_per_s / SPEED_BAND_STEP_CM_PER_S);
+    return (uint8_t)(speed_tenths_cm_per_s / SPEED_BAND_STEP_TENTHS_CM_PER_S);
 }
 
 void initHallSensorPins(void)
@@ -113,13 +113,14 @@ void speedTrapTask(void *p)
             PRINTF("Sensor 2 detected on PTA13, timer stopped\r\n");
 
             if (elapsed_ms > 0U) {
-                uint32_t speed_cm_per_s =
-                    (uint32_t)(((SPEED_DISTANCE_CM * 1000UL) + (elapsed_ms / 2UL)) / elapsed_ms);
-                uint8_t speed_band = convertSpeedToBand(speed_cm_per_s);
+                uint32_t speed_tenths_cm_per_s =
+                    (uint32_t)(((SPEED_DISTANCE_CM * 10000UL) + (elapsed_ms / 2UL)) / elapsed_ms);
+                uint8_t speed_band = convertSpeedToBand(speed_tenths_cm_per_s);
 
-                PRINTF("Speed detected: elapsed=%lu ms speed=%lu cm/s band=%u\r\n",
+                PRINTF("Speed detected: elapsed=%lu ms speed=%lu.%lu cm/s band=%u\r\n",
                        (unsigned long)elapsed_ms,
-                       (unsigned long)speed_cm_per_s,
+                       (unsigned long)(speed_tenths_cm_per_s / 10UL),
+                       (unsigned long)(speed_tenths_cm_per_s % 10UL),
                        (unsigned int)speed_band);
 
                 if (speed_band > 0U) {
