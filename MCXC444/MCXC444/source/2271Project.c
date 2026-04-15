@@ -31,7 +31,7 @@ int main(void)
 {
     BaseType_t uartTaskOk;
     BaseType_t lightTaskOk;
-    BaseType_t sendTaskOk;
+    BaseType_t speedTrapTaskOk;
 
     BOARD_InitBootPins();
     BOARD_InitBootClocks();
@@ -46,17 +46,18 @@ int main(void)
 
     initGPIO();
     initInterrupt();
+    initHallSensorPins();
     initUART2(BAUD_RATE);
     initPhotoresistor();
 
     uartTaskOk = xTaskCreate(parseUARTTask, "parseUART", configMINIMAL_STACK_SIZE + 768U, NULL, 2U, NULL);
     lightTaskOk = xTaskCreate(toggleVehicleLight, "toggleVehicleLight", configMINIMAL_STACK_SIZE + 512U, NULL, 1U, NULL);
-    sendTaskOk = xTaskCreate(sendRandomTask, "sendRandom", configMINIMAL_STACK_SIZE + 256U, NULL, 1U, NULL);
+    speedTrapTaskOk = xTaskCreate(speedTrapTask, "speedTrap", configMINIMAL_STACK_SIZE + 512U, NULL, 2U, NULL);
 
-    PRINTF("Task create -> parseUART=%ld toggleVehicleLight=%ld sendRandom=%ld\r\n",
+    PRINTF("Task create -> parseUART=%ld toggleVehicleLight=%ld speedTrap=%ld\r\n",
            (long)uartTaskOk,
            (long)lightTaskOk,
-           (long)sendTaskOk);
+           (long)speedTrapTaskOk);
 
     vTaskStartScheduler();
 

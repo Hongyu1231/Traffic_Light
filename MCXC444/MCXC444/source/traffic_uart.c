@@ -1,7 +1,6 @@
 #include "traffic_uart.h"
 
 #include <stdbool.h>
-#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -16,7 +15,7 @@ static const char UART_KEY[] = "CG2271_UART_KEY";
 static char toHexNibble(uint8_t value)
 {
     value &= 0x0FU;
-    return (value < 10U) ? (char)('0' + value) : (char)('A' + value - 10U);
+    return (value < 10U) ? (char)('0' + value) : (char)('A' + value - 10);
 }
 
 static int fromHexNibble(char value)
@@ -153,6 +152,25 @@ void sendMessage(const char *message)
     UART2->C2 |= UART_C2_TE_MASK;
 }
 
+void sendSpeedBand(uint8_t band)
+{
+    char plain_buffer[MAX_MSG_LEN];
+    char secure_buffer[MAX_MSG_LEN];
+
+    if ((band == 0U) || (band > 9U)) {
+        return;
+    }
+
+    snprintf(plain_buffer, sizeof(plain_buffer), "MCX:%u", (unsigned int)band);
+
+    if (makeSecurePacket(plain_buffer, secure_buffer, sizeof(secure_buffer))) {
+        sendMessage(secure_buffer);
+        PRINTF("Sent secure speed band to ESP32: %s\r\n", plain_buffer);
+    } else {
+        PRINTF("Failed to build secure UART speed packet\r\n");
+    }
+}
+
 void initUART2(uint32_t baud_rate)
 {
     uint32_t bus_clk;
@@ -260,29 +278,5 @@ void parseUARTTask(void *p)
                 PRINTF("Invalid decrypted UART message: %s\r\n", plain_message);
             }
         }
-    }
-}
-
-void sendRandomTask(void *p)
-{
-    char plain_buffer[MAX_MSG_LEN];
-    char buffer[MAX_MSG_LEN];
-
-    (void)p;
-    srand(1234);
-
-    while (1) {
-        int value = (rand() % 10);
-
-        snprintf(plain_buffer, sizeof(plain_buffer), "MCX:%d", value);
-
-        if (makeSecurePacket(plain_buffer, buffer, sizeof(buffer))) {
-            sendMessage(buffer);
-            PRINTF("Sent secure to ESP32: MCX:%d\r\n", value);
-        } else {
-            PRINTF("Failed to build secure UART packet\r\n");
-        }
-
-        vTaskDelay(pdMS_TO_TICKS(5000U));
     }
 }

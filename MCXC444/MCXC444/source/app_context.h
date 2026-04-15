@@ -15,6 +15,8 @@
 #define BLUE_PIN            29U
 
 #define SWITCH_PIN          4U
+#define HALL_SENSOR_1_PIN   12U
+#define HALL_SENSOR_2_PIN   13U
 #define PEDESTRIAN_BUZZER   4U
 
 #define PEDESTRIAN_RED      1U //PTC1
@@ -34,6 +36,17 @@
 #define EXTENDED_PEDESTRIAN_GREEN_MS 15000U
 #define S_MAX_BAND          8
 #define S_MIN_BAND          1
+
+#define HALL_SENSOR_1_ACTIVE_HIGH 1U
+#define HALL_SENSOR_2_ACTIVE_HIGH 0U
+
+#define SPEED_DISTANCE_CM        15U
+#define SPEED_MIN_VALID_CM_PER_S 1U
+#define SPEED_MAX_CM_PER_S       18U
+#define SPEED_HARD_MAX_CM_PER_S  40U
+#define SPEED_BAND_STEP_CM_PER_S 2U
+#define SPEED_SAMPLE_MS          10U
+#define SPEED_CLEAR_DELAY_MS     100U
 
 typedef enum tl {
     RED,
