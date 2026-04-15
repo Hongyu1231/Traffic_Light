@@ -6,13 +6,13 @@ extern SemaphoreHandle_t g_trafficMutex;
 extern SemaphoreHandle_t g_wifiMutex;
 extern int g_speedBands[3];
 
-// Helper function to extract specific values from the JSON response string
+// Helper parsing function to extract unquoted numbers or strings
 String extractValue(const String& json, const String& key, int fromIndex) {
   int index = json.indexOf("\"" + key + "\":", fromIndex);
   if (index == -1) return "";
   int start = index + key.length() + 3;
   if (json[start] == '\"') {
-    start++;
+    start++; 
     int end = json.indexOf("\"", start);
     return json.substring(start, end);
   } else {
@@ -23,76 +23,94 @@ String extractValue(const String& json, const String& key, int fromIndex) {
 }
 
 void taskLTA_Pipeline(void* pvParameters) {
-  Serial.println("🚩 [LTA] Task is ALIVE and starting...");
-  
-  // Wait 5 seconds after boot to avoid the initial WiFi connection surge
+  Serial.println("[LTA] Task is ALIVE (Unique Roads Filter Mode)");
   vTaskDelay(pdMS_TO_TICKS(5000)); 
 
   for (;;) {
     if (WiFi.status() == WL_CONNECTED) {
-      Serial.println("[LTA] Waiting for WiFi Mutex...");
-      
-      // Attempt to take the WiFi Mutex with a 30-second timeout
       if (xSemaphoreTake(g_wifiMutex, pdMS_TO_TICKS(30000)) == pdTRUE) {
-        Serial.println("[LTA] Mutex Taken! Starting SSL Connection...");
         
         WiFiClientSecure ltaClient;
-        ltaClient.setInsecure(); // Skip SSL certificate validation
-        ltaClient.setTimeout(15000);
-
+        ltaClient.setInsecure(); 
         HTTPClient http;
-        http.setTimeout(15000);
 
-        // Append a millis timestamp to the URL to prevent API caching
-        String url = "https://datamall2.mytransport.sg/ltaodataservice/v4/TrafficSpeedBands?$top=3&t=" + String(millis());
+        String url = "https://datamall2.mytransport.sg/ltaodataservice/v4/TrafficSpeedBands?$top=30";
         
         if (http.begin(ltaClient, url)) {
           http.addHeader("AccountKey", LTASpeedBandApiKey);
-          Serial.println("[LTA] Sending GET Request...");
+          http.addHeader("accept", "application/json"); 
           
           int httpCode = http.GET();
-          Serial.printf("[LTA] Server responded with: %d\n", httpCode);
           
           if (httpCode == 200) {
             String payload = http.getString();
+            
             if (payload.length() > 0) {
-              Serial.printf("✅ [LTA] Received %d bytes. Parsing...\n", payload.length());
               int found = 0, searchIndex = 0;
+              int localSpeeds[3] = {0, 0, 0}; 
+              String roadNames[3] = {"", "", ""}; 
               
+              int valueStartIndex = payload.indexOf("\"value\":[");
+              if (valueStartIndex != -1) searchIndex = valueStartIndex;
+
               while (found < 3) {
                 int roadIndex = payload.indexOf("\"RoadName\":", searchIndex);
-                if (roadIndex == -1) break;
+                if (roadIndex == -1) break; // Reached the end of the data
                 
-                String speed = extractValue(payload, "SpeedBand", roadIndex);
-                if (speed != "") {
-                  // Safely update the shared global speed array
-                  if (xSemaphoreTake(g_trafficMutex, pdMS_TO_TICKS(100)) == pdTRUE) {
-                    g_speedBands[found] = speed.toInt();
-                    xSemaphoreGive(g_trafficMutex);
+                String rName = extractValue(payload, "RoadName", roadIndex);
+                String speedStr = extractValue(payload, "SpeedBand", roadIndex);
+                
+                if (speedStr != "" && rName != "") {
+                  
+                  // Check if this road name already exists in our array
+                  bool isDuplicate = false;
+                  for (int i = 0; i < found; i++) {
+                    if (roadNames[i] == rName) {
+                      isDuplicate = true;
+                      break;
+                    }
                   }
-                  found++;
+
+                  // Only add it to our display list if it is NOT a duplicate
+                  if (!isDuplicate) {
+                    roadNames[found] = rName;
+                    localSpeeds[found] = speedStr.toInt();
+                    found++; // Successfully found a unique road, increment counter
+                  }
                 }
-                searchIndex = roadIndex + 1;
+                // Move the search index forward to find the next record
+                searchIndex = roadIndex + 10; 
               }
+
+              // Update the global array for the UART task safely
+              if (xSemaphoreTake(g_trafficMutex, pdMS_TO_TICKS(100)) == pdTRUE) {
+                for(int i = 0; i < 3; i++) {
+                  g_speedBands[i] = localSpeeds[i];
+                }
+                xSemaphoreGive(g_trafficMutex);
+              }
+
+              // Print the final 3 UNIQUE roads to the terminal
+              Serial.println("\n====================================");
+              Serial.println("📡 [LTA API] Live Traffic Speeds (Unique Roads):");
+              for (int i = 0; i < found; i++) {
+                Serial.printf("   ➡️ %s: Speedband %d\n", roadNames[i].c_str(), localSpeeds[i]);
+              }
+              Serial.println("====================================\n");
+
             }
           } else {
-            Serial.println("❌ [LTA] HTTP GET Failed");
+            Serial.printf("❌ [LTA] HTTP GET Failed, Code: %d\n", httpCode);
           }
           http.end();
         }
         
-        ltaClient.stop(); // Properly close the SSL connection
-        Serial.println("[LTA] Releasing Mutex and sleeping...");
-        xSemaphoreGive(g_wifiMutex);
+        ltaClient.stop(); 
+        xSemaphoreGive(g_wifiMutex); 
         
-        // Critical: Allow a 5s window for other tasks (like Telegram) to use the WiFi
-        vTaskDelay(pdMS_TO_TICKS(5000));
-        
-      } else {
-        Serial.println("⚠️ [LTA] Could not get Mutex for 30s!");
       }
     }
-    // Poll the LTA server every 20 seconds
-    vTaskDelay(pdMS_TO_TICKS(20000)); 
+    // Wait 15 seconds before fetching the next update
+    vTaskDelay(pdMS_TO_TICKS(15000)); 
   }
 }

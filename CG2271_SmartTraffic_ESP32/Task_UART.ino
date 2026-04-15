@@ -3,6 +3,7 @@
 extern SemaphoreHandle_t g_trafficMutex;
 extern int g_speedBands[3];
 extern volatile int g_rfidUartFlag;
+extern volatile bool g_uploadDbFlag;
 
 extern volatile int g_mcxcValue;
 extern volatile bool g_newMcxcData;
@@ -79,9 +80,9 @@ static bool decodeSecurePacket(const String& packet, String& plainText) {
 
 void taskUARTComm(void* pvParameters) {
   uint32_t lastTx = 0;
-  uint32_t txCount = 0;
+  // txCount variable removed since we no longer print it
   Serial1.setTimeout(50);
-  Serial.println("[UART] Secure UART task started.");
+  Serial.println("[UART] Secure UART task started in silent mode.");
 
   for (;;) {
     // --- RX Logic: Check for incoming secure data from MCXC444 ---
@@ -92,12 +93,12 @@ void taskUARTComm(void* pvParameters) {
       if (rxStr.length() > 0) {
         String plainRx;
         if (!decodeSecurePacket(rxStr, plainRx)) {
-          Serial.printf("[UART RX] Rejected invalid secure packet: %s\n", rxStr.c_str());
+          // Keep error logs for debugging
+          Serial.printf("[UART RX ERROR] Invalid secure packet: %s\n", rxStr.c_str());
           continue;
         }
 
-        Serial.printf("[UART RX] Encrypted: %s\n", rxStr.c_str());
-        Serial.printf("[UART RX] Decrypted: %s\n", plainRx.c_str());
+        // Successfully decrypted prints removed to save CPU
 
         if (plainRx.startsWith("MCX:")) {
           plainRx.remove(0, 4);
@@ -110,9 +111,11 @@ void taskUARTComm(void* pvParameters) {
         if (tempVal >= 0 && tempVal <= 9) {
           g_mcxcValue = tempVal;
           g_newMcxcData = true; // Trigger Telegram update
-          Serial.printf("[UART RX] Valid Speedband Received: %d\n", g_mcxcValue);
+          g_uploadDbFlag = true; // Trigger Database update
+          // Success print removed
         } else {
-          Serial.printf("[UART RX] Invalid Speedband Range: %s\n", plainRx.c_str());
+          // Keep error logs for out-of-bounds data
+          Serial.printf("[UART RX ERROR] Invalid Speedband: %s\n", plainRx.c_str());
         }
       }
     }
@@ -134,17 +137,11 @@ void taskUARTComm(void* pvParameters) {
                        String(rfidStatus);
       String securePacket = makeSecurePacket(plainTx);
       Serial1.print(securePacket);
-      txCount++;
 
       // Reset RFID flag after successful transmission
       if (rfidStatus == 1) g_rfidUartFlag = 0;
 
-      Serial.printf("[UART TX] Plain #%lu: %s\n",
-                    (unsigned long)txCount,
-                    plainTx.c_str());
-      Serial.printf("[UART TX] Encrypted #%lu: %s",
-                    (unsigned long)txCount,
-                    securePacket.c_str());
+      // TX Success prints removed to save CPU
 
       lastTx = millis();
     }

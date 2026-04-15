@@ -12,7 +12,7 @@ int g_speedBands[3] = {0, 0, 0};
 
 // --- RFID & MCXC Data ---
 volatile int g_rfidUartFlag = 0; 
-// 👇 Added: To store data received from MCXC444
+volatile bool g_uploadDbFlag = false;
 volatile int g_mcxcValue = 0;
 volatile bool g_newMcxcData = false;
 
@@ -20,6 +20,7 @@ void taskLTA_Pipeline(void* pvParameters);
 void taskPollRFID(void* pvParameters);
 void taskUARTComm(void* pvParameters);
 void taskTelegramAlert(void* pvParameters);
+void taskDatabaseUpload(void* pvParameters);
 
 void setup() {
   Serial.begin(115200);
@@ -42,6 +43,7 @@ void setup() {
   xTaskCreate(taskUARTComm, "UART_Task", 4096, NULL, 1, NULL);
   xTaskCreate(taskPollRFID, "RFID_Task", 4096, NULL, 3, NULL);
   xTaskCreate(taskTelegramAlert, "Tele_Task", 10240, NULL, 1, NULL);
+  xTaskCreate(taskDatabaseUpload, "Task_DB", 4096, NULL, 1, NULL);
 
   Serial.println("🚀 System is ready.");
 }

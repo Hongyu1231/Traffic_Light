@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Traffic Monitoring Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; text-align: center; padding: 40px; }
+        .dashboard-card { background: white; border-radius: 20px; box-shadow: 0 10px 15px rgba(0,0,0,0.05); padding: 30px; max-width: 950px; margin: auto; }
+        .info-panel { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding: 15px; background: #f1f5f9; border-radius: 12px; }
+        .live-indicator { background: #ef4444; color: white; padding: 4px 12px; border-radius: 6px; animation: pulse 1.5s infinite; font-weight: bold; font-size: 12px; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+        #session-badge { background: #0ea5e9; color: white; padding: 3px 8px; border-radius: 4px; font-size: 14px; margin-left: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-card">
+        <h2>🚦 Live Vehicle Speed Dashboard</h2>
+        
+        <div class="info-panel">
+            <div>
+                <span style="font-weight: bold; color: #64748b;">Active Tracking:</span> 
+                <span id="session-badge">Detecting...</span>
+            </div>
+            <div><span class="live-indicator">LIVE</span> Auto-refresh in: <span id="timer" style="font-weight: bold;">5</span>s</div>
+        </div>
+
+        <canvas id="mainChart"></canvas>
+    </div>
+
+    <script>
+        let chartInstance = null;
+        let counter = 5;
+
+        async function refreshData() {
+            try {
+                const res = await fetch('http://localhost:3000/api/telemetry');
+                if (!res.ok) throw new Error('API unreachable');
+                const rawData = await res.json();
+
+                if (rawData.length === 0) {
+                    document.getElementById('session-badge').innerText = "Empty Database";
+                    document.getElementById('session-badge').style.background = "#f59e0b"; // Warning orange
+                    return;
+                }
+
+                // MAGIC HAPPENS HERE: Auto-detect and filter by the latest Session ID
+                // 1. Identify the most recent session from the very first record (index 0)
+                const latestSessionId = rawData[0].sessionId;
+                
+                // 2. Update the UI Badge so the user knows which session is being tracked
+                document.getElementById('session-badge').innerText = latestSessionId;
+                document.getElementById('session-badge').style.background = "#0ea5e9"; // Active blue
+
+                // 3. Filter the raw data to ONLY include records from this specific session
+                const sessionOnlyData = rawData.filter(record => record.sessionId === latestSessionId);
+
+                // Prepare data for Chart.js (Take up to 15 records from THIS session only)
+                const plotData = sessionOnlyData.slice(0, 15).reverse();
+                const labels = plotData.map(d => new Date(d.timestamp).toLocaleTimeString());
+                const values = plotData.map(d => d.speedband);
+
+                // Render or Update Chart
+                const ctx = document.getElementById('mainChart').getContext('2d');
+                if (chartInstance) chartInstance.destroy();
+
+                chartInstance = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Mapped Vehicle Speed (Speedband)',
+                            data: values,
+                            borderColor: '#06b6d4',
+                            backgroundColor: 'rgba(6, 182, 212, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4,
+                            pointRadius: 5
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: { min: 0, max: 9, title: { display: true, text: 'Speed Category (0-9)' } },
+                            x: { grid: { display: false } }
+                        },
+                        animation: { duration: 400 }
+                    }
+                });
+                
+                counter = 5; // Reset counter only on success
+            } catch (err) {
+                console.error(err);
+                document.getElementById('session-badge').innerText = "Server Offline";
+                document.getElementById('session-badge').style.background = "#ef4444"; // Error red
+            }
+        }
+
+        setInterval(() => {
+            counter--;
+            if (counter <= 0) { refreshData(); counter = 5; }
+            document.getElementById('timer').innerText = counter;
+        }, 1000);
+
+        refreshData(); // Initial call
+    </script>
+</body>
+</html>
