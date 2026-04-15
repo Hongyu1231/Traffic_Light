@@ -17,7 +17,7 @@
 #define SWITCH_PIN          4U
 #define HALL_SENSOR_1_PIN   12U
 #define HALL_SENSOR_2_PIN   13U
-#define PEDESTRIAN_BUZZER   4U
+#define PEDESTRIAN_BUZZER_PIN   30U
 
 #define PEDESTRIAN_RED      1U //PTC1
 #define PEDESTRIAN_GREEN    2U //PTC2
@@ -62,5 +62,6 @@ extern SemaphoreHandle_t sema;
 extern QueueHandle_t queue;
 extern volatile int current_speed_bands[3];
 extern volatile int authorized_rfid_request;
+extern volatile int lcd_countdown_seconds;
 
 #endif /* APP_CONTEXT_H_ */

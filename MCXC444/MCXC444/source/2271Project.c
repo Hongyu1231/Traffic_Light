@@ -26,12 +26,14 @@
 #include "traffic_uart.h"
 #include "traffic_gpio.h"
 #include "traffic_ldr.h"
+#include "traffic_lcd.h"
 
 int main(void)
 {
     BaseType_t uartTaskOk;
     BaseType_t lightTaskOk;
     BaseType_t speedTrapTaskOk;
+    BaseType_t lcdTaskOk;
 
     BOARD_InitBootPins();
     BOARD_InitBootClocks();
@@ -49,15 +51,18 @@ int main(void)
     initHallSensorPins();
     initUART2(BAUD_RATE);
     initPhotoresistor();
+    initSLCD();
 
     uartTaskOk = xTaskCreate(parseUARTTask, "parseUART", configMINIMAL_STACK_SIZE + 768U, NULL, 2U, NULL);
     lightTaskOk = xTaskCreate(toggleVehicleLight, "toggleVehicleLight", configMINIMAL_STACK_SIZE + 512U, NULL, 1U, NULL);
     speedTrapTaskOk = xTaskCreate(speedTrapTask, "speedTrap", configMINIMAL_STACK_SIZE + 512U, NULL, 2U, NULL);
+    lcdTaskOk = xTaskCreate(lcdTask, "LCD_task", configMINIMAL_STACK_SIZE + 256U, NULL, 1U, NULL);
 
-    PRINTF("Task create -> parseUART=%ld toggleVehicleLight=%ld speedTrap=%ld\r\n",
+    PRINTF("Task create -> parseUART=%ld toggleVehicleLight=%ld speedTrap=%ld LCD_task=%ld\r\n",
            (long)uartTaskOk,
            (long)lightTaskOk,
-           (long)speedTrapTaskOk);
+           (long)speedTrapTaskOk,
+           (long)lcdTaskOk);
 
     vTaskStartScheduler();
 

@@ -4,6 +4,7 @@
 #include "fsl_common.h"
 #include "FreeRTOS.h"
 #include "task.h"
+#include "traffic_lcd.h"
 
 void initGPIO(void)
 {
@@ -16,8 +17,8 @@ void initGPIO(void)
     PORTE->PCR[BLUE_PIN] = PORT_PCR_MUX(1);
     GPIOE->PDDR |= (1UL << RED_PIN) | (1UL << BLUE_PIN);
 
-    PORTC->PCR[PEDESTRIAN_BUZZER] = PORT_PCR_MUX(1);
-    GPIOC->PDDR |= (1UL << PEDESTRIAN_BUZZER);
+    PORTE->PCR[PEDESTRIAN_BUZZER_PIN] = PORT_PCR_MUX(1);
+    GPIOE->PDDR |= (1UL << PEDESTRIAN_BUZZER_PIN);
 
     PORTC->PCR[PEDESTRIAN_RED] = PORT_PCR_MUX(1);
     GPIOC->PDDR |= (1UL << PEDESTRIAN_RED);
@@ -73,12 +74,12 @@ void allLEDsOff(void)
 
 void onPedestrianBuzzer(void)
 {
-    GPIOC->PSOR = (1UL << PEDESTRIAN_BUZZER);
+    GPIOE->PSOR = (1UL << PEDESTRIAN_BUZZER_PIN);
 }
 
 void offPedestrianBuzzer(void)
 {
-    GPIOC->PCOR = (1UL << PEDESTRIAN_BUZZER);
+    GPIOE->PCOR = (1UL << PEDESTRIAN_BUZZER_PIN);
 }
 
 void togglePedestrianLight(void)
@@ -98,6 +99,7 @@ void blinkPedestrianLight(void)
     int i;
 
     for (i = 0; i < 5; i++) {
+        setLCDCountdownValue(5 - i);
         GPIOC->PCOR = (1UL << PEDESTRIAN_GREEN);
         offPedestrianBuzzer();
         vTaskDelay(pdMS_TO_TICKS(500U));
@@ -106,4 +108,6 @@ void blinkPedestrianLight(void)
         onPedestrianBuzzer();
         vTaskDelay(pdMS_TO_TICKS(500U));
     }
+
+    setLCDCountdownValue(0);
 }
