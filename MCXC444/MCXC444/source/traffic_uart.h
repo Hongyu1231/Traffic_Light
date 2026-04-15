@@ -6,6 +6,6 @@
 void initUART2(uint32_t baud_rate);
 void parseUARTTask(void *p);
 void sendMessage(const char *message);
-void sendRandomTask(void *p);
+void sendSpeedBand(uint8_t band);
 
 #endif /* TRAFFIC_UART_H_ */

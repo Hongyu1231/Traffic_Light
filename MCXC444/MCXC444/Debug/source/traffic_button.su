@@ -2,5 +2,9 @@ C:\Users\Yue Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\CMSIS/c
 C:\Users\Yue Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\CMSIS/core_cm0plus.h:795:22:__NVIC_DisableIRQ	16	static
 C:\Users\Yue Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\CMSIS/core_cm0plus.h:848:22:__NVIC_ClearPendingIRQ	16	static
 C:\Users\Yue Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\CMSIS/core_cm0plus.h:866:22:__NVIC_SetPriority	24	static
-../source/traffic_button.c:6:6:initInterrupt	8	static
-../source/traffic_button.c:30:6:PORTA_IRQHandler	16	static
+../source/traffic_button.c:16:13:hallSensorActive	24	static
+../source/traffic_button.c:22:16:convertSpeedToBand	16	static
+../source/traffic_button.c:39:6:initHallSensorPins	8	static
+../source/traffic_button.c:56:6:initInterrupt	8	static
+../source/traffic_button.c:80:6:speedTrapTask	72	static
+../source/traffic_button.c:154:6:PORTA_IRQHandler	16	static
