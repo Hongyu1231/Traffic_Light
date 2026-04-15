@@ -1,0 +1,8 @@
+../source/traffic_lcd.c:64:20:lcdWaveformWrite	16	static
+../source/traffic_lcd.c:69:13:lcdClearFrontplanes	8	static
+../source/traffic_lcd.c:81:13:lcdSetDigit	24	static
+../source/traffic_lcd.c:122:13:lcdBlankDisplay	8	static
+../source/traffic_lcd.c:127:13:lcdShowSingleDigit	16	static
+../source/traffic_lcd.c:133:6:initSLCD	32	static
+../source/traffic_lcd.c:197:6:setLCDCountdownValue	16	static
+../source/traffic_lcd.c:209:6:lcdTask	24	static

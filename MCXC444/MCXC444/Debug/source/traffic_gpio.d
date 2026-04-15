@@ -64,7 +64,8 @@ source/traffic_gpio.o source/traffic_gpio.d: ../source/traffic_gpio.c \
  C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_clock.h \
  C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_common.h \
  C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_gpio.h \
- C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\freertos\freertos-kernel\include/task.h
+ C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\freertos\freertos-kernel\include/task.h \
+ ../source/traffic_lcd.h
 ../source/traffic_gpio.h:
 ../source/app_context.h:
 C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\freertos\freertos-kernel\include/FreeRTOS.h:
@@ -132,3 +133,4 @@ C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\driver
 C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_common.h:
 C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_gpio.h:
 C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\freertos\freertos-kernel\include/task.h:
+../source/traffic_lcd.h:
