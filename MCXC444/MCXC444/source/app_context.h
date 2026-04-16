@@ -28,8 +28,6 @@
 #define BAUD_RATE           9600U
 #define UART2_INT_PRIO      128U
 
-#define SERVO_PIN_PTE20     20U
-#define SERVO_OPEN_HOLD_MS  2000U
 #define LCD_I2C_SCL_PTB0    0U
 #define LCD_I2C_SDA_PTB1    1U
 

@@ -862,7 +862,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x1e5 ./source/traffic_button.o
  .debug_macro   0x00000000       0x80 ./source/traffic_button.o
  .debug_macro   0x00000000       0x77 ./source/traffic_button.o
- .debug_macro   0x00000000       0xd0 ./source/traffic_button.o
+ .debug_macro   0x00000000       0xc4 ./source/traffic_button.o
  .debug_macro   0x00000000       0x1c ./source/traffic_button.o
  .debug_macro   0x00000000       0x70 ./source/traffic_button.o
  .debug_macro   0x00000000       0x16 ./source/traffic_button.o
@@ -970,7 +970,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x14f ./source/traffic_control.o
  .debug_macro   0x00000000       0x80 ./source/traffic_control.o
  .debug_macro   0x00000000       0x77 ./source/traffic_control.o
- .debug_macro   0x00000000       0xd0 ./source/traffic_control.o
+ .debug_macro   0x00000000       0xc4 ./source/traffic_control.o
  .debug_macro   0x00000000       0x16 ./source/traffic_control.o
  .debug_macro   0x00000000       0x1c ./source/traffic_control.o
  .debug_macro   0x00000000       0x3e ./source/traffic_control.o
@@ -1124,7 +1124,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x14f ./source/traffic_gpio.o
  .debug_macro   0x00000000       0x80 ./source/traffic_gpio.o
  .debug_macro   0x00000000       0x77 ./source/traffic_gpio.o
- .debug_macro   0x00000000       0xd0 ./source/traffic_gpio.o
+ .debug_macro   0x00000000       0xc4 ./source/traffic_gpio.o
  .debug_macro   0x00000000       0x16 ./source/traffic_gpio.o
  .debug_macro   0x00000000       0x1c ./source/traffic_gpio.o
  .debug_macro   0x00000000       0x3e ./source/traffic_gpio.o
@@ -1275,7 +1275,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x14f ./source/traffic_lcd.o
  .debug_macro   0x00000000       0x80 ./source/traffic_lcd.o
  .debug_macro   0x00000000       0x77 ./source/traffic_lcd.o
- .debug_macro   0x00000000       0xd0 ./source/traffic_lcd.o
+ .debug_macro   0x00000000       0xc4 ./source/traffic_lcd.o
  .debug_macro   0x00000000       0x16 ./source/traffic_lcd.o
  .debug_macro   0x00000000       0x1c ./source/traffic_lcd.o
  .debug_macro   0x00000000       0x3e ./source/traffic_lcd.o
@@ -1436,7 +1436,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x14f ./source/traffic_lcd2004.o
  .debug_macro   0x00000000       0x80 ./source/traffic_lcd2004.o
  .debug_macro   0x00000000       0x77 ./source/traffic_lcd2004.o
- .debug_macro   0x00000000       0xd0 ./source/traffic_lcd2004.o
+ .debug_macro   0x00000000       0xc4 ./source/traffic_lcd2004.o
  .debug_macro   0x00000000       0x16 ./source/traffic_lcd2004.o
  .debug_macro   0x00000000       0x1c ./source/traffic_lcd2004.o
  .debug_macro   0x00000000       0x3e ./source/traffic_lcd2004.o
@@ -1616,210 +1616,6 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./source/traffic_ldr.o
  .debug_macro   0x00000000       0x16 ./source/traffic_ldr.o
  .debug_macro   0x00000000      0x1e5 ./source/traffic_ldr.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .group         0x00000000        0xc ./source/traffic_servo.o
- .text          0x00000000        0x0 ./source/traffic_servo.o
- .data          0x00000000        0x0 ./source/traffic_servo.o
- .bss           0x00000000        0x0 ./source/traffic_servo.o
- .text.CLOCK_EnableClock
-                0x00000000       0x34 ./source/traffic_servo.o
- .bss.servo_is_open
-                0x00000000        0x1 ./source/traffic_servo.o
- .bss.servo_close_deadline
-                0x00000000        0x4 ./source/traffic_servo.o
- .bss.servo_reset_pending
-                0x00000000        0x1 ./source/traffic_servo.o
- .data.servo_state
-                0x00000000        0xc ./source/traffic_servo.o
- .text.delayUs  0x00000000       0x20 ./source/traffic_servo.o
- .text.servoWritePulse
-                0x00000000       0x4c ./source/traffic_servo.o
- .text.servoResetSweep
-                0x00000000       0x24 ./source/traffic_servo.o
- .text.servoAdvanceSweep
-                0x00000000       0x88 ./source/traffic_servo.o
- .rodata.initServo.str1.4
-                0x00000000       0x36 ./source/traffic_servo.o
- .text.initServo
-                0x00000000       0x58 ./source/traffic_servo.o
- .rodata.servoRequestOpen.str1.4
-                0x00000000       0x20 ./source/traffic_servo.o
- .text.servoRequestOpen
-                0x00000000       0x50 ./source/traffic_servo.o
- .text.servoTask
-                0x00000000       0xd0 ./source/traffic_servo.o
- .debug_info    0x00000000      0x8c1 ./source/traffic_servo.o
- .debug_abbrev  0x00000000      0x261 ./source/traffic_servo.o
- .debug_aranges
-                0x00000000       0x58 ./source/traffic_servo.o
- .debug_ranges  0x00000000       0x48 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x3da ./source/traffic_servo.o
- .debug_macro   0x00000000      0xaf0 ./source/traffic_servo.o
- .debug_macro   0x00000000       0x22 ./source/traffic_servo.o
- .debug_macro   0x00000000       0x10 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x12e ./source/traffic_servo.o
- .debug_macro   0x00000000      0x5b3 ./source/traffic_servo.o
- .debug_macro   0x00000000       0x16 ./source/traffic_servo.o
- .debug_macro   0x00000000       0x16 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x180 ./source/traffic_servo.o
- .debug_macro   0x00000000       0x1c ./source/traffic_servo.o
- .debug_macro   0x00000000       0x1c ./source/traffic_servo.o
- .debug_macro   0x00000000      0x182 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x267 ./source/traffic_servo.o
- .debug_macro   0x00000000       0x22 ./source/traffic_servo.o
- .debug_macro   0x00000000       0x1f ./source/traffic_servo.o
- .debug_macro   0x00000000       0x12 ./source/traffic_servo.o
- .debug_macro   0x00000000     0x102c ./source/traffic_servo.o
- .debug_macro   0x00000000       0xc3 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x14f ./source/traffic_servo.o
- .debug_macro   0x00000000       0x80 ./source/traffic_servo.o
- .debug_macro   0x00000000       0x77 ./source/traffic_servo.o
- .debug_macro   0x00000000       0xd0 ./source/traffic_servo.o
- .debug_macro   0x00000000       0x16 ./source/traffic_servo.o
- .debug_macro   0x00000000       0x1c ./source/traffic_servo.o
- .debug_macro   0x00000000       0x3e ./source/traffic_servo.o
- .debug_macro   0x00000000       0x2e ./source/traffic_servo.o
- .debug_macro   0x00000000       0x10 ./source/traffic_servo.o
- .debug_macro   0x00000000       0x2e ./source/traffic_servo.o
- .debug_macro   0x00000000       0xb4 ./source/traffic_servo.o
- .debug_macro   0x00000000       0x28 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x3bc ./source/traffic_servo.o
- .debug_macro   0x00000000       0x3a ./source/traffic_servo.o
- .debug_macro   0x00000000     0x124f ./source/traffic_servo.o
- .debug_macro   0x00000000      0x846 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x3c1 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x1ed ./source/traffic_servo.o
- .debug_macro   0x00000000      0x16e ./source/traffic_servo.o
- .debug_macro   0x00000000      0x247 ./source/traffic_servo.o
- .debug_macro   0x00000000       0x4e ./source/traffic_servo.o
- .debug_macro   0x00000000       0x88 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x41b ./source/traffic_servo.o
- .debug_macro   0x00000000      0x280 ./source/traffic_servo.o
- .debug_macro   0x00000000       0x88 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x3bb ./source/traffic_servo.o
- .debug_macro   0x00000000      0x691 ./source/traffic_servo.o
- .debug_macro   0x00000000     0x31e6 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x478 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x105 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x631 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x199 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x11b ./source/traffic_servo.o
- .debug_macro   0x00000000      0x2da ./source/traffic_servo.o
- .debug_macro   0x00000000      0x20e ./source/traffic_servo.o
- .debug_macro   0x00000000      0x1ed ./source/traffic_servo.o
- .debug_macro   0x00000000       0x86 ./source/traffic_servo.o
- .debug_macro   0x00000000       0xfe ./source/traffic_servo.o
- .debug_macro   0x00000000      0x119 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x121 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x1ed ./source/traffic_servo.o
- .debug_macro   0x00000000       0x63 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x112 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x295 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x6c4 ./source/traffic_servo.o
- .debug_macro   0x00000000       0xdb ./source/traffic_servo.o
- .debug_macro   0x00000000      0x3a6 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x366 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x703 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x5d5 ./source/traffic_servo.o
- .debug_macro   0x00000000       0x9b ./source/traffic_servo.o
- .debug_macro   0x00000000       0x88 ./source/traffic_servo.o
- .debug_macro   0x00000000       0xce ./source/traffic_servo.o
- .debug_macro   0x00000000       0xfb ./source/traffic_servo.o
- .debug_macro   0x00000000       0x10 ./source/traffic_servo.o
- .debug_macro   0x00000000       0x16 ./source/traffic_servo.o
- .debug_macro   0x00000000      0x1e5 ./source/traffic_servo.o
- .debug_macro   0x00000000       0x1c ./source/traffic_servo.o
- .debug_macro   0x00000000       0x70 ./source/traffic_servo.o
- .debug_macro   0x00000000       0x47 ./source/traffic_servo.o
- .debug_macro   0x00000000       0x16 ./source/traffic_servo.o
- .debug_macro   0x00000000       0x6d ./source/traffic_servo.o
- .debug_macro   0x00000000       0x1c ./source/traffic_servo.o
- .debug_macro   0x00000000       0x1c ./source/traffic_servo.o
- .debug_line    0x00000000      0xd45 ./source/traffic_servo.o
- .debug_str     0x00000000    0x5e46a ./source/traffic_servo.o
- .comment       0x00000000       0x46 ./source/traffic_servo.o
- .debug_frame   0x00000000      0x100 ./source/traffic_servo.o
- .ARM.attributes
-                0x00000000       0x2c ./source/traffic_servo.o
  .group         0x00000000        0xc ./source/traffic_uart.o
  .group         0x00000000        0xc ./source/traffic_uart.o
  .group         0x00000000        0xc ./source/traffic_uart.o
@@ -1924,7 +1720,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x14f ./source/traffic_uart.o
  .debug_macro   0x00000000       0x80 ./source/traffic_uart.o
  .debug_macro   0x00000000       0x77 ./source/traffic_uart.o
- .debug_macro   0x00000000       0xd0 ./source/traffic_uart.o
+ .debug_macro   0x00000000       0xc4 ./source/traffic_uart.o
  .debug_macro   0x00000000       0x16 ./source/traffic_uart.o
  .debug_macro   0x00000000       0x1c ./source/traffic_uart.o
  .debug_macro   0x00000000       0x3e ./source/traffic_uart.o
@@ -5546,7 +5342,6 @@ LOAD ./source/traffic_gpio.o
 LOAD ./source/traffic_lcd.o
 LOAD ./source/traffic_lcd2004.o
 LOAD ./source/traffic_ldr.o
-LOAD ./source/traffic_servo.o
 LOAD ./source/traffic_uart.o
 LOAD ./freertos/freertos-kernel/portable/MemMang/heap_4.o
 LOAD ./freertos/freertos-kernel/portable/GCC/ARM_CM0/mpu_wrappers_v2_asm.o
@@ -7248,7 +7043,7 @@ LOAD linker stubs
  .debug_ranges  0x00001d00       0x10 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_seek.o)
  .debug_ranges  0x00001d10       0x10 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_tmpnam.o)
 
-.debug_macro    0x00000000    0x136ba
+.debug_macro    0x00000000    0x136a2
  .debug_macro   0x00000000      0x2b4 ./utilities/str/fsl_str.o
  .debug_macro   0x000002b4      0xaf0 ./utilities/str/fsl_str.o
  .debug_macro   0x00000da4       0x10 ./utilities/str/fsl_str.o
@@ -7343,53 +7138,53 @@ LOAD linker stubs
  .debug_macro   0x0000e93b       0x16 ./source/2271Project.o
  .debug_macro   0x0000e951      0x1e5 ./source/2271Project.o
  .debug_macro   0x0000eb36      0x133 ./source/2271Project.o
- .debug_macro   0x0000ec69       0xd6 ./source/2271Project.o
- .debug_macro   0x0000ed3f      0x10b ./source/app_context.o
- .debug_macro   0x0000ee4a       0x16 ./source/app_context.o
- .debug_macro   0x0000ee60       0x16 ./source/app_context.o
- .debug_macro   0x0000ee76       0xd0 ./source/app_context.o
- .debug_macro   0x0000ef46       0x2f ./source/mtb.o
- .debug_macro   0x0000ef75       0x82 ./source/mtb.o
- .debug_macro   0x0000eff7       0x10 ./source/mtb.o
- .debug_macro   0x0000f007       0x11 ./source/semihost_hardfault.o
- .debug_macro   0x0000f018      0x3a6 ./source/traffic_button.o
- .debug_macro   0x0000f3be       0x1c ./source/traffic_button.o
- .debug_macro   0x0000f3da       0x47 ./source/traffic_button.o
- .debug_macro   0x0000f421      0x399 ./source/traffic_control.o
- .debug_macro   0x0000f7ba       0x16 ./source/traffic_control.o
- .debug_macro   0x0000f7d0      0x369 ./source/traffic_gpio.o
- .debug_macro   0x0000fb39      0x419 ./source/traffic_lcd.o
- .debug_macro   0x0000ff52      0x409 ./source/traffic_lcd2004.o
- .debug_macro   0x0001035b       0x22 ./source/traffic_lcd2004.o
- .debug_macro   0x0001037d      0x2c7 ./source/traffic_ldr.o
- .debug_macro   0x00010644      0x3b9 ./source/traffic_uart.o
- .debug_macro   0x000109fd       0xd8 ./source/traffic_uart.o
- .debug_macro   0x00010ad5       0x10 ./source/traffic_uart.o
- .debug_macro   0x00010ae5      0x155 ./freertos/freertos-kernel/portable/MemMang/heap_4.o
- .debug_macro   0x00010c3a      0x25a ./freertos/freertos-kernel/portable/GCC/ARM_CM0/port.o
- .debug_macro   0x00010e94       0xdc ./freertos/freertos-kernel/portable/GCC/ARM_CM0/portasm.o
- .debug_macro   0x00010f70       0xe2 ./freertos/freertos-kernel/list.o
- .debug_macro   0x00011052      0x157 ./freertos/freertos-kernel/queue.o
- .debug_macro   0x000111a9      0x1e4 ./freertos/freertos-kernel/tasks.o
- .debug_macro   0x0001138d       0x17 ./freertos/freertos-kernel/tasks.o
- .debug_macro   0x000113a4      0x131 ./freertos/freertos-kernel/timers.o
- .debug_macro   0x000114d5      0x2ba ./drivers/fsl_clock.o
- .debug_macro   0x0001178f      0x27e ./drivers/fsl_common_arm.o
- .debug_macro   0x00011a0d      0x28d ./drivers/fsl_i2c.o
- .debug_macro   0x00011c9a       0x1c ./drivers/fsl_i2c.o
- .debug_macro   0x00011cb6      0x28d ./drivers/fsl_lpuart.o
- .debug_macro   0x00011f43       0x10 ./drivers/fsl_lpuart.o
- .debug_macro   0x00011f53      0x204 ./device/system_MCXC444.o
- .debug_macro   0x00012157      0x310 ./component/uart/fsl_adapter_lpuart.o
- .debug_macro   0x00012467       0x41 ./component/uart/fsl_adapter_lpuart.o
- .debug_macro   0x000124a8      0x366 ./component/serial_manager/fsl_component_serial_manager.o
- .debug_macro   0x0001280e       0x6a ./component/serial_manager/fsl_component_serial_manager.o
- .debug_macro   0x00012878      0x324 ./component/serial_manager/fsl_component_serial_port_uart.o
- .debug_macro   0x00012b9c      0x34c ./board/board.o
- .debug_macro   0x00012ee8      0x2ad ./board/clock_config.o
- .debug_macro   0x00013195      0x282 ./board/peripherals.o
- .debug_macro   0x00013417      0x28d ./board/pin_mux.o
- .debug_macro   0x000136a4       0x16 ./board/pin_mux.o
+ .debug_macro   0x0000ec69       0xca ./source/2271Project.o
+ .debug_macro   0x0000ed33      0x10b ./source/app_context.o
+ .debug_macro   0x0000ee3e       0x16 ./source/app_context.o
+ .debug_macro   0x0000ee54       0x16 ./source/app_context.o
+ .debug_macro   0x0000ee6a       0xc4 ./source/app_context.o
+ .debug_macro   0x0000ef2e       0x2f ./source/mtb.o
+ .debug_macro   0x0000ef5d       0x82 ./source/mtb.o
+ .debug_macro   0x0000efdf       0x10 ./source/mtb.o
+ .debug_macro   0x0000efef       0x11 ./source/semihost_hardfault.o
+ .debug_macro   0x0000f000      0x3a6 ./source/traffic_button.o
+ .debug_macro   0x0000f3a6       0x1c ./source/traffic_button.o
+ .debug_macro   0x0000f3c2       0x47 ./source/traffic_button.o
+ .debug_macro   0x0000f409      0x399 ./source/traffic_control.o
+ .debug_macro   0x0000f7a2       0x16 ./source/traffic_control.o
+ .debug_macro   0x0000f7b8      0x369 ./source/traffic_gpio.o
+ .debug_macro   0x0000fb21      0x419 ./source/traffic_lcd.o
+ .debug_macro   0x0000ff3a      0x409 ./source/traffic_lcd2004.o
+ .debug_macro   0x00010343       0x22 ./source/traffic_lcd2004.o
+ .debug_macro   0x00010365      0x2c7 ./source/traffic_ldr.o
+ .debug_macro   0x0001062c      0x3b9 ./source/traffic_uart.o
+ .debug_macro   0x000109e5       0xd8 ./source/traffic_uart.o
+ .debug_macro   0x00010abd       0x10 ./source/traffic_uart.o
+ .debug_macro   0x00010acd      0x155 ./freertos/freertos-kernel/portable/MemMang/heap_4.o
+ .debug_macro   0x00010c22      0x25a ./freertos/freertos-kernel/portable/GCC/ARM_CM0/port.o
+ .debug_macro   0x00010e7c       0xdc ./freertos/freertos-kernel/portable/GCC/ARM_CM0/portasm.o
+ .debug_macro   0x00010f58       0xe2 ./freertos/freertos-kernel/list.o
+ .debug_macro   0x0001103a      0x157 ./freertos/freertos-kernel/queue.o
+ .debug_macro   0x00011191      0x1e4 ./freertos/freertos-kernel/tasks.o
+ .debug_macro   0x00011375       0x17 ./freertos/freertos-kernel/tasks.o
+ .debug_macro   0x0001138c      0x131 ./freertos/freertos-kernel/timers.o
+ .debug_macro   0x000114bd      0x2ba ./drivers/fsl_clock.o
+ .debug_macro   0x00011777      0x27e ./drivers/fsl_common_arm.o
+ .debug_macro   0x000119f5      0x28d ./drivers/fsl_i2c.o
+ .debug_macro   0x00011c82       0x1c ./drivers/fsl_i2c.o
+ .debug_macro   0x00011c9e      0x28d ./drivers/fsl_lpuart.o
+ .debug_macro   0x00011f2b       0x10 ./drivers/fsl_lpuart.o
+ .debug_macro   0x00011f3b      0x204 ./device/system_MCXC444.o
+ .debug_macro   0x0001213f      0x310 ./component/uart/fsl_adapter_lpuart.o
+ .debug_macro   0x0001244f       0x41 ./component/uart/fsl_adapter_lpuart.o
+ .debug_macro   0x00012490      0x366 ./component/serial_manager/fsl_component_serial_manager.o
+ .debug_macro   0x000127f6       0x6a ./component/serial_manager/fsl_component_serial_manager.o
+ .debug_macro   0x00012860      0x324 ./component/serial_manager/fsl_component_serial_port_uart.o
+ .debug_macro   0x00012b84      0x34c ./board/board.o
+ .debug_macro   0x00012ed0      0x2ad ./board/clock_config.o
+ .debug_macro   0x0001317d      0x282 ./board/peripherals.o
+ .debug_macro   0x000133ff      0x28d ./board/pin_mux.o
+ .debug_macro   0x0001368c       0x16 ./board/pin_mux.o
 
 .debug_line     0x00000000    0x1f10d
  .debug_line    0x00000000      0xfc8 ./utilities/str/fsl_str.o
@@ -7469,84 +7264,84 @@ LOAD linker stubs
  .debug_line    0x0001f065       0x53 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_seek.o)
  .debug_line    0x0001f0b8       0x55 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_tmpnam.o)
 
-.debug_str      0x00000000    0x6b6a2
- .debug_str     0x00000000    0x6b6a2 ./utilities/str/fsl_str.o
+.debug_str      0x00000000    0x6b675
+ .debug_str     0x00000000    0x6b675 ./utilities/str/fsl_str.o
                               0x507a1 (size before relaxing)
- .debug_str     0x0006b6a2    0x5dd83 ./utilities/debug_console/fsl_debug_console.o
- .debug_str     0x0006b6a2    0x5968a ./utilities/fsl_assert.o
- .debug_str     0x0006b6a2     0x32c5 ./startup/startup_mcxc444.o
- .debug_str     0x0006b6a2    0x5defe ./source/2271Project.o
- .debug_str     0x0006b6a2    0x1091b ./source/app_context.o
- .debug_str     0x0006b6a2     0x33a4 ./source/mtb.o
- .debug_str     0x0006b6a2     0x2e91 ./source/semihost_hardfault.o
- .debug_str     0x0006b6a2    0x5da56 ./source/traffic_button.o
- .debug_str     0x0006b6a2    0x5ca52 ./source/traffic_control.o
- .debug_str     0x0006b6a2    0x5cb4b ./source/traffic_gpio.o
- .debug_str     0x0006b6a2    0x5d7cd ./source/traffic_lcd.o
- .debug_str     0x0006b6a2    0x5eb69 ./source/traffic_lcd2004.o
- .debug_str     0x0006b6a2    0x50922 ./source/traffic_ldr.o
- .debug_str     0x0006b6a2    0x5eaa0 ./source/traffic_uart.o
- .debug_str     0x0006b6a2     0xff9c ./freertos/freertos-kernel/portable/MemMang/heap_4.o
- .debug_str     0x0006b6a2    0x10f30 ./freertos/freertos-kernel/portable/GCC/ARM_CM0/port.o
- .debug_str     0x0006b6a2     0xe274 ./freertos/freertos-kernel/portable/GCC/ARM_CM0/portasm.o
- .debug_str     0x0006b6a2     0xe4a7 ./freertos/freertos-kernel/list.o
- .debug_str     0x0006b6a2    0x10d2f ./freertos/freertos-kernel/queue.o
- .debug_str     0x0006b6a2    0x11c81 ./freertos/freertos-kernel/tasks.o
- .debug_str     0x0006b6a2    0x11145 ./freertos/freertos-kernel/timers.o
- .debug_str     0x0006b6a2    0x513fb ./drivers/fsl_clock.o
- .debug_str     0x0006b6a2    0x4fa62 ./drivers/fsl_common_arm.o
- .debug_str     0x0006b6a2    0x516c2 ./drivers/fsl_i2c.o
- .debug_str     0x0006b6a2    0x51a51 ./drivers/fsl_lpuart.o
- .debug_str     0x0006b6a2    0x4e4b6 ./device/system_MCXC444.o
- .debug_str     0x0006b6a2    0x59fdd ./component/uart/fsl_adapter_lpuart.o
- .debug_str     0x0006b6a2    0x5a9e4 ./component/serial_manager/fsl_component_serial_manager.o
- .debug_str     0x0006b6a2    0x59a86 ./component/serial_manager/fsl_component_serial_port_uart.o
- .debug_str     0x0006b6a2    0x5a704 ./board/board.o
- .debug_str     0x0006b6a2    0x50ca8 ./board/clock_config.o
- .debug_str     0x0006b6a2    0x4fa08 ./board/peripherals.o
- .debug_str     0x0006b6a2    0x506bb ./board/pin_mux.o
- .debug_str     0x0006b6a2      0x16a C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(_cr__main.o)
- .debug_str     0x0006b6a2      0x1b8 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(memcpy.o)
- .debug_str     0x0006b6a2      0x181 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(memset.o)
- .debug_str     0x0006b6a2      0x234 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(alloc.o)
- .debug_str     0x0006b6a2      0x115 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(errno.o)
- .debug_str     0x0006b6a2      0x23e C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(initio.o)
- .debug_str     0x0006b6a2      0x415 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(printf.o)
- .debug_str     0x0006b6a2      0x486 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(scanf.o)
- .debug_str     0x0006b6a2      0x234 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(setvbuf.o)
- .debug_str     0x0006b6a2      0x167 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(strcspn.o)
- .debug_str     0x0006b6a2      0x17b C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(strlen.o)
- .debug_str     0x0006b6a2      0x166 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(strncmp.o)
- .debug_str     0x0006b6a2      0x166 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(strncpy.o)
- .debug_str     0x0006b6a2      0x160 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(strrchr.o)
- .debug_str     0x0006b6a2      0x211 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(ungetc.o)
- .debug_str     0x0006b6a2      0x29f C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(__fillbuf.o)
- .debug_str     0x0006b6a2      0x180 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(__init_alloc.o)
- .debug_str     0x0006b6a2      0x1c2 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_cr_sbrk.o)
- .debug_str     0x0006b6a2      0x278 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_deferredlazyseek.o)
- .debug_str     0x0006b6a2      0x231 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_fdopen.o)
- .debug_str     0x0006b6a2      0x22a C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_fflush.o)
- .debug_str     0x0006b6a2      0x168 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_frexpl.o)
- .debug_str     0x0006b6a2      0x180 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_ldexpl.o)
- .debug_str     0x0006b6a2      0x244 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_writebuf.o)
- .debug_str     0x0006b6a2      0x1c2 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(ctype.o)
- .debug_str     0x0006b6a2      0x25f C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(fclose.o)
- .debug_str     0x0006b6a2      0x236 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(fflush.o)
- .debug_str     0x0006b6a2      0x24f C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(fseek.o)
- .debug_str     0x0006b6a2      0x215 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(ftell.o)
- .debug_str     0x0006b6a2      0x1d4 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(remove.o)
- .debug_str     0x0006b6a2      0x15d C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_cr_check_heap.o)
- .debug_str     0x0006b6a2      0x240 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_do_fflush.o)
- .debug_str     0x0006b6a2      0x382 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libcr_eabihelpers.a(double.o)
- .debug_str     0x0006b6a2      0x202 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__ciob.o)
- .debug_str     0x0006b6a2      0x12f C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_appexit.o)
- .debug_str     0x0006b6a2      0x15b C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_close.o)
- .debug_str     0x0006b6a2      0x154 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_flen.o)
- .debug_str     0x0006b6a2      0x156 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_istty.o)
- .debug_str     0x0006b6a2      0x16c C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_read.o)
- .debug_str     0x0006b6a2      0x161 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_remove.o)
- .debug_str     0x0006b6a2      0x154 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_seek.o)
- .debug_str     0x0006b6a2      0x16e C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_tmpnam.o)
+ .debug_str     0x0006b675    0x5dd83 ./utilities/debug_console/fsl_debug_console.o
+ .debug_str     0x0006b675    0x5968a ./utilities/fsl_assert.o
+ .debug_str     0x0006b675     0x32c5 ./startup/startup_mcxc444.o
+ .debug_str     0x0006b675    0x5ded1 ./source/2271Project.o
+ .debug_str     0x0006b675    0x108ee ./source/app_context.o
+ .debug_str     0x0006b675     0x33a4 ./source/mtb.o
+ .debug_str     0x0006b675     0x2e91 ./source/semihost_hardfault.o
+ .debug_str     0x0006b675    0x5da29 ./source/traffic_button.o
+ .debug_str     0x0006b675    0x5ca25 ./source/traffic_control.o
+ .debug_str     0x0006b675    0x5cb1e ./source/traffic_gpio.o
+ .debug_str     0x0006b675    0x5d7a0 ./source/traffic_lcd.o
+ .debug_str     0x0006b675    0x5eb3c ./source/traffic_lcd2004.o
+ .debug_str     0x0006b675    0x50922 ./source/traffic_ldr.o
+ .debug_str     0x0006b675    0x5ea73 ./source/traffic_uart.o
+ .debug_str     0x0006b675     0xff9c ./freertos/freertos-kernel/portable/MemMang/heap_4.o
+ .debug_str     0x0006b675    0x10f30 ./freertos/freertos-kernel/portable/GCC/ARM_CM0/port.o
+ .debug_str     0x0006b675     0xe274 ./freertos/freertos-kernel/portable/GCC/ARM_CM0/portasm.o
+ .debug_str     0x0006b675     0xe4a7 ./freertos/freertos-kernel/list.o
+ .debug_str     0x0006b675    0x10d2f ./freertos/freertos-kernel/queue.o
+ .debug_str     0x0006b675    0x11c81 ./freertos/freertos-kernel/tasks.o
+ .debug_str     0x0006b675    0x11145 ./freertos/freertos-kernel/timers.o
+ .debug_str     0x0006b675    0x513fb ./drivers/fsl_clock.o
+ .debug_str     0x0006b675    0x4fa62 ./drivers/fsl_common_arm.o
+ .debug_str     0x0006b675    0x516c2 ./drivers/fsl_i2c.o
+ .debug_str     0x0006b675    0x51a51 ./drivers/fsl_lpuart.o
+ .debug_str     0x0006b675    0x4e4b6 ./device/system_MCXC444.o
+ .debug_str     0x0006b675    0x59fdd ./component/uart/fsl_adapter_lpuart.o
+ .debug_str     0x0006b675    0x5a9e4 ./component/serial_manager/fsl_component_serial_manager.o
+ .debug_str     0x0006b675    0x59a86 ./component/serial_manager/fsl_component_serial_port_uart.o
+ .debug_str     0x0006b675    0x5a704 ./board/board.o
+ .debug_str     0x0006b675    0x50ca8 ./board/clock_config.o
+ .debug_str     0x0006b675    0x4fa08 ./board/peripherals.o
+ .debug_str     0x0006b675    0x506bb ./board/pin_mux.o
+ .debug_str     0x0006b675      0x16a C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(_cr__main.o)
+ .debug_str     0x0006b675      0x1b8 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(memcpy.o)
+ .debug_str     0x0006b675      0x181 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(memset.o)
+ .debug_str     0x0006b675      0x234 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(alloc.o)
+ .debug_str     0x0006b675      0x115 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(errno.o)
+ .debug_str     0x0006b675      0x23e C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(initio.o)
+ .debug_str     0x0006b675      0x415 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(printf.o)
+ .debug_str     0x0006b675      0x486 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(scanf.o)
+ .debug_str     0x0006b675      0x234 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(setvbuf.o)
+ .debug_str     0x0006b675      0x167 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(strcspn.o)
+ .debug_str     0x0006b675      0x17b C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(strlen.o)
+ .debug_str     0x0006b675      0x166 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(strncmp.o)
+ .debug_str     0x0006b675      0x166 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(strncpy.o)
+ .debug_str     0x0006b675      0x160 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(strrchr.o)
+ .debug_str     0x0006b675      0x211 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(ungetc.o)
+ .debug_str     0x0006b675      0x29f C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(__fillbuf.o)
+ .debug_str     0x0006b675      0x180 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(__init_alloc.o)
+ .debug_str     0x0006b675      0x1c2 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_cr_sbrk.o)
+ .debug_str     0x0006b675      0x278 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_deferredlazyseek.o)
+ .debug_str     0x0006b675      0x231 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_fdopen.o)
+ .debug_str     0x0006b675      0x22a C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_fflush.o)
+ .debug_str     0x0006b675      0x168 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_frexpl.o)
+ .debug_str     0x0006b675      0x180 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_ldexpl.o)
+ .debug_str     0x0006b675      0x244 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_writebuf.o)
+ .debug_str     0x0006b675      0x1c2 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(ctype.o)
+ .debug_str     0x0006b675      0x25f C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(fclose.o)
+ .debug_str     0x0006b675      0x236 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(fflush.o)
+ .debug_str     0x0006b675      0x24f C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(fseek.o)
+ .debug_str     0x0006b675      0x215 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(ftell.o)
+ .debug_str     0x0006b675      0x1d4 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(remove.o)
+ .debug_str     0x0006b675      0x15d C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_cr_check_heap.o)
+ .debug_str     0x0006b675      0x240 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_do_fflush.o)
+ .debug_str     0x0006b675      0x382 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libcr_eabihelpers.a(double.o)
+ .debug_str     0x0006b675      0x202 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__ciob.o)
+ .debug_str     0x0006b675      0x12f C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_appexit.o)
+ .debug_str     0x0006b675      0x15b C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_close.o)
+ .debug_str     0x0006b675      0x154 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_flen.o)
+ .debug_str     0x0006b675      0x156 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_istty.o)
+ .debug_str     0x0006b675      0x16c C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_read.o)
+ .debug_str     0x0006b675      0x161 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_remove.o)
+ .debug_str     0x0006b675      0x154 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_seek.o)
+ .debug_str     0x0006b675      0x16e C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_tmpnam.o)
 
 .comment        0x00000000       0x45
  .comment       0x00000000       0x45 ./utilities/str/fsl_str.o
@@ -7933,7 +7728,6 @@ CLOCK_EnableUsbfs0Clock                           ./drivers/fsl_clock.o
 CLOCK_GetBusClkFreq                               ./drivers/fsl_clock.o
                                                   ./source/traffic_uart.o
 CLOCK_GetCoreSysClkFreq                           ./drivers/fsl_clock.o
-                                                  ./source/traffic_servo.o
                                                   ./source/traffic_lcd2004.o
 CLOCK_GetEr32kClkFreq                             ./drivers/fsl_clock.o
 CLOCK_GetFlashClkFreq                             ./drivers/fsl_clock.o
@@ -7974,7 +7768,6 @@ DbgConsole_Init                                   ./utilities/debug_console/fsl_
                                                   ./board/board.o
 DbgConsole_Printf                                 ./utilities/debug_console/fsl_debug_console.o
                                                   ./source/traffic_uart.o
-                                                  ./source/traffic_servo.o
                                                   ./source/traffic_lcd2004.o
                                                   ./source/traffic_control.o
                                                   ./source/traffic_button.o
@@ -8137,7 +7930,6 @@ Reserved43_DriverIRQHandler                       ./startup/startup_mcxc444.o
 Reserved43_IRQHandler                             ./startup/startup_mcxc444.o
 ResetISR                                          ./startup/startup_mcxc444.o
 SDK_DelayAtLeastUs                                ./drivers/fsl_common_arm.o
-                                                  ./source/traffic_servo.o
                                                   ./source/traffic_lcd2004.o
 SDK_Free                                          ./drivers/fsl_common.o
 SDK_Malloc                                        ./drivers/fsl_common.o
@@ -8493,7 +8285,6 @@ initPhotoresistor                                 ./source/traffic_ldr.o
                                                   ./source/2271Project.o
 initSLCD                                          ./source/traffic_lcd.o
                                                   ./source/2271Project.o
-initServo                                         ./source/traffic_servo.o
 initUART2                                         ./source/traffic_uart.o
                                                   ./source/2271Project.o
 isalnum                                           C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(ctype.o)
@@ -8508,7 +8299,6 @@ isspace                                           C:/nxp/MCUXpressoIDE_25.6.136/
 isupper                                           C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(ctype.o)
 isxdigit                                          C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(ctype.o)
 lcd2004ResetToIdle                                ./source/traffic_lcd2004.o
-                                                  ./source/traffic_servo.o
 lcd2004SetStatus                                  ./source/traffic_lcd2004.o
                                                   ./source/traffic_uart.o
                                                   ./source/traffic_control.o
@@ -8599,8 +8389,6 @@ sema                                              ./source/app_context.o
 sendMessage                                       ./source/traffic_uart.o
 sendSpeedBand                                     ./source/traffic_uart.o
                                                   ./source/traffic_button.o
-servoRequestOpen                                  ./source/traffic_servo.o
-servoTask                                         ./source/traffic_servo.o
 setLCDCountdownValue                              ./source/traffic_lcd.o
                                                   ./source/traffic_gpio.o
 setPedestrianLightToRed                           ./source/traffic_gpio.o
@@ -8710,7 +8498,6 @@ vPortEnterCritical                                ./freertos/freertos-kernel/por
                                                   ./freertos/freertos-kernel/event_groups.o
                                                   ./freertos/freertos-kernel/portable/MemMang/heap_4.o
                                                   ./source/traffic_uart.o
-                                                  ./source/traffic_servo.o
                                                   ./source/traffic_lcd2004.o
                                                   ./source/traffic_control.o
 vPortExitCritical                                 ./freertos/freertos-kernel/portable/GCC/ARM_CM0/port.o
@@ -8721,7 +8508,6 @@ vPortExitCritical                                 ./freertos/freertos-kernel/por
                                                   ./freertos/freertos-kernel/event_groups.o
                                                   ./freertos/freertos-kernel/portable/MemMang/heap_4.o
                                                   ./source/traffic_uart.o
-                                                  ./source/traffic_servo.o
                                                   ./source/traffic_lcd2004.o
                                                   ./source/traffic_control.o
 vPortFree                                         ./freertos/freertos-kernel/portable/MemMang/heap_4.o
@@ -8758,7 +8544,6 @@ vStreamBufferDelete                               ./freertos/freertos-kernel/str
 vStreamBufferSetStreamBufferNotificationIndex     ./freertos/freertos-kernel/stream_buffer.o
 vStreamBufferSetStreamBufferNumber                ./freertos/freertos-kernel/stream_buffer.o
 vTaskDelay                                        ./freertos/freertos-kernel/tasks.o
-                                                  ./source/traffic_servo.o
                                                   ./source/traffic_lcd2004.o
                                                   ./source/traffic_lcd.o
                                                   ./source/traffic_gpio.o
@@ -8870,7 +8655,6 @@ xTaskCreate                                       ./freertos/freertos-kernel/tas
                                                   ./freertos/freertos-kernel/timers.o
                                                   ./source/2271Project.o
 xTaskDelayUntil                                   ./freertos/freertos-kernel/tasks.o
-                                                  ./source/traffic_servo.o
 xTaskGenericNotify                                ./freertos/freertos-kernel/tasks.o
                                                   ./freertos/freertos-kernel/stream_buffer.o
 xTaskGenericNotifyFromISR                         ./freertos/freertos-kernel/tasks.o
@@ -8890,7 +8674,6 @@ xTaskGetSchedulerState                            ./freertos/freertos-kernel/tas
                                                   ./source/traffic_lcd2004.o
 xTaskGetTickCount                                 ./freertos/freertos-kernel/tasks.o
                                                   ./freertos/freertos-kernel/timers.o
-                                                  ./source/traffic_servo.o
                                                   ./source/traffic_button.o
 xTaskGetTickCountFromISR                          ./freertos/freertos-kernel/tasks.o
 xTaskIncrementTick                                ./freertos/freertos-kernel/tasks.o
