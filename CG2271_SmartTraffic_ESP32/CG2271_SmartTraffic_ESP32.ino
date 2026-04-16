@@ -1,8 +1,8 @@
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
 
-const char* ssid = "Hongyu"; 
-const char* password = "12345678";
+const char* ssid = "iPhone (6)"; 
+const char* password = "Tan96239287";
 String LTASpeedBandApiKey = "RqgAcv3YQW+ZcgFjTmmGHQ==";
 
 // Global Resources
@@ -39,9 +39,9 @@ void setup() {
   g_trafficMutex = xSemaphoreCreateMutex();
   g_wifiMutex = xSemaphoreCreateMutex();
 
-  xTaskCreate(taskLTA_Pipeline, "LTA_Task", 10240, NULL, 2, NULL);
-  xTaskCreate(taskUARTComm, "UART_Task", 4096, NULL, 1, NULL);
-  xTaskCreate(taskPollRFID, "RFID_Task", 4096, NULL, 3, NULL);
+  xTaskCreate(taskLTA_Pipeline, "LTA_Task", 10240, NULL, 1, NULL);
+  xTaskCreate(taskUARTComm, "UART_Task", 4096, NULL, 3, NULL);
+  xTaskCreate(taskPollRFID, "RFID_Task", 4096, NULL, 2, NULL);
   xTaskCreate(taskTelegramAlert, "Tele_Task", 10240, NULL, 1, NULL);
   xTaskCreate(taskDatabaseUpload, "Task_DB", 4096, NULL, 1, NULL);
 
