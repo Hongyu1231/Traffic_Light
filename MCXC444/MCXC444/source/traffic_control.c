@@ -80,7 +80,9 @@ void toggleVehicleLight(void *p)
         taskENTER_CRITICAL();
         current_rfid_state = RFID_STATE_NONE;
         pedestrian_phase_active = false;
+        pedestrian_button_latched = false;
         taskEXIT_CRITICAL();
+        setPedestrianLightToRed();
         lcd2004SetStatus(LCD2004_STATUS_IDLE);
     }
 }

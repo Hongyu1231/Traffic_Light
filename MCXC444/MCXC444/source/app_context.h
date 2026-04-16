@@ -74,5 +74,6 @@ extern volatile int current_speed_bands[3];
 extern volatile int lcd_countdown_seconds;
 extern volatile TRfidState current_rfid_state;
 extern volatile bool pedestrian_phase_active;
+extern volatile bool pedestrian_button_latched;
 
 #endif /* APP_CONTEXT_H_ */
