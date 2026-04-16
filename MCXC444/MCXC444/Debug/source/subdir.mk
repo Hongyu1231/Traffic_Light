@@ -12,7 +12,9 @@ C_SRCS += \
 ../source/traffic_control.c \
 ../source/traffic_gpio.c \
 ../source/traffic_lcd.c \
+../source/traffic_lcd2004.c \
 ../source/traffic_ldr.c \
+../source/traffic_servo.c \
 ../source/traffic_uart.c 
 
 C_DEPS += \
@@ -24,7 +26,9 @@ C_DEPS += \
 ./source/traffic_control.d \
 ./source/traffic_gpio.d \
 ./source/traffic_lcd.d \
+./source/traffic_lcd2004.d \
 ./source/traffic_ldr.d \
+./source/traffic_servo.d \
 ./source/traffic_uart.d 
 
 OBJS += \
@@ -36,7 +40,9 @@ OBJS += \
 ./source/traffic_control.o \
 ./source/traffic_gpio.o \
 ./source/traffic_lcd.o \
+./source/traffic_lcd2004.o \
 ./source/traffic_ldr.o \
+./source/traffic_servo.o \
 ./source/traffic_uart.o 
 
 
@@ -52,7 +58,7 @@ source/%.o: ../source/%.c source/subdir.mk
 clean: clean-source
 
 clean-source:
-	-$(RM) ./source/2271Project.d ./source/2271Project.o ./source/app_context.d ./source/app_context.o ./source/mtb.d ./source/mtb.o ./source/semihost_hardfault.d ./source/semihost_hardfault.o ./source/traffic_button.d ./source/traffic_button.o ./source/traffic_control.d ./source/traffic_control.o ./source/traffic_gpio.d ./source/traffic_gpio.o ./source/traffic_lcd.d ./source/traffic_lcd.o ./source/traffic_ldr.d ./source/traffic_ldr.o ./source/traffic_uart.d ./source/traffic_uart.o
+	-$(RM) ./source/2271Project.d ./source/2271Project.o ./source/app_context.d ./source/app_context.o ./source/mtb.d ./source/mtb.o ./source/semihost_hardfault.d ./source/semihost_hardfault.o ./source/traffic_button.d ./source/traffic_button.o ./source/traffic_control.d ./source/traffic_control.o ./source/traffic_gpio.d ./source/traffic_gpio.o ./source/traffic_lcd.d ./source/traffic_lcd.o ./source/traffic_lcd2004.d ./source/traffic_lcd2004.o ./source/traffic_ldr.d ./source/traffic_ldr.o ./source/traffic_servo.d ./source/traffic_servo.o ./source/traffic_uart.d ./source/traffic_uart.o
 
 .PHONY: clean-source
 

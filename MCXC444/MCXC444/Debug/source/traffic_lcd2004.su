@@ -1,0 +1,18 @@
+C:\Users\Yue Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_clock.h:437:20:CLOCK_EnableClock	24	static
+../source/traffic_lcd2004.c:42:13:lcd2004DelayMs	24	static
+../source/traffic_lcd2004.c:51:17:lcd2004WriteByte	40	static
+../source/traffic_lcd2004.c:66:17:lcd2004ProbeAddress	48	static
+../source/traffic_lcd2004.c:82:13:lcd2004ScanBus	16	static
+../source/traffic_lcd2004.c:103:13:lcd2004WriteExpander	16	static
+../source/traffic_lcd2004.c:108:13:lcd2004PulseEnable	16	static
+../source/traffic_lcd2004.c:116:13:lcd2004Write4Bits	16	static
+../source/traffic_lcd2004.c:122:13:lcd2004Send	32	static
+../source/traffic_lcd2004.c:131:13:lcd2004Command	16	static
+../source/traffic_lcd2004.c:137:13:lcd2004Data	16	static
+../source/traffic_lcd2004.c:142:13:lcd2004SetCursor	16	static
+../source/traffic_lcd2004.c:148:13:lcd2004WritePaddedLine	32	static
+../source/traffic_lcd2004.c:161:13:lcd2004RenderStatus	16	static
+../source/traffic_lcd2004.c:186:6:initLCD2004	24	static
+../source/traffic_lcd2004.c:242:6:lcd2004SetStatus	16	static
+../source/traffic_lcd2004.c:249:6:lcd2004ResetToIdle	8	static
+../source/traffic_lcd2004.c:256:6:lcd2004Task	32	static

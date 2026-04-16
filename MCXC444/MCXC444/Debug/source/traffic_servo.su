@@ -1,0 +1,8 @@
+C:\Users\Yue Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_clock.h:437:20:CLOCK_EnableClock	24	static
+../source/traffic_servo.c:41:13:delayUs	16	static
+../source/traffic_servo.c:46:13:servoWritePulse	16	static
+../source/traffic_servo.c:61:13:servoResetSweep	8	static
+../source/traffic_servo.c:68:13:servoAdvanceSweep	8	static
+../source/traffic_servo.c:94:6:initServo	8	static
+../source/traffic_servo.c:109:6:servoRequestOpen	8	static
+../source/traffic_servo.c:121:6:servoTask	24	static

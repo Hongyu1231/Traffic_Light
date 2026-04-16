@@ -8,6 +8,7 @@
 #include "board.h"
 #include "clock_config.h"
 #include "fsl_debug_console.h"
+#include "traffic_lcd2004.h"
 
 static char send_buffer[MAX_MSG_LEN];
 static const char UART_KEY[] = "CG2271_UART_KEY";
@@ -267,13 +268,29 @@ void parseUARTTask(void *p)
                 current_speed_bands[0] = s1;
                 current_speed_bands[1] = s2;
                 current_speed_bands[2] = s3;
-                authorized_rfid_request = (rfid == 1) ? 1 : 0;
+
+                taskENTER_CRITICAL();
+                if (!pedestrian_phase_active) {
+                    if (current_rfid_state == RFID_STATE_VALID) {
+                        /* Keep a valid user latched until the pedestrian cycle ends. */
+                    } else if (rfid == 2) {
+                        current_rfid_state = RFID_STATE_VALID;
+                        lcd2004SetStatus(LCD2004_STATUS_PROCEED);
+                    } else if (rfid == 1) {
+                        current_rfid_state = RFID_STATE_INVALID;
+                        lcd2004SetStatus(LCD2004_STATUS_INVALID);
+                    } else {
+                        current_rfid_state = RFID_STATE_NONE;
+                        lcd2004SetStatus(LCD2004_STATUS_IDLE);
+                    }
+                }
+                taskEXIT_CRITICAL();
 
                 PRINTF("Updated Traffic Speeds -> R1: %d, R2: %d, R3: %d, RFID: %d\r\n",
                        current_speed_bands[0],
                        current_speed_bands[1],
                        current_speed_bands[2],
-                       authorized_rfid_request);
+                       rfid);
             } else {
                 PRINTF("Invalid decrypted UART message: %s\r\n", plain_message);
             }

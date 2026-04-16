@@ -1,5 +1,5 @@
-source/traffic_uart.o source/traffic_uart.d: ../source/traffic_uart.c \
- ../source/traffic_uart.h ../source/app_context.h \
+source/traffic_servo.o source/traffic_servo.d: ../source/traffic_servo.c \
+ ../source/traffic_servo.h ../source/app_context.h \
  C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\freertos\freertos-kernel\include/FreeRTOS.h \
  C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\freertos\freertos-kernel\template/FreeRTOSConfig.h \
  C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\freertos\freertos-kernel\template\ARM_CM0/FreeRTOSConfig_Gen.h \
@@ -64,13 +64,14 @@ source/traffic_uart.o source/traffic_uart.d: ../source/traffic_uart.c \
  C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_clock.h \
  C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_common.h \
  C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_gpio.h \
- C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\board/clock_config.h \
+ C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_clock.h \
  C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\utilities\debug_console/fsl_debug_console.h \
  C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\component\serial_manager/fsl_component_serial_manager.h \
  C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\component\serial_manager/fsl_component_serial_port_uart.h \
  C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\component\uart/fsl_adapter_uart.h \
- ../source/traffic_lcd2004.h
-../source/traffic_uart.h:
+ ../source/traffic_lcd2004.h \
+ C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\freertos\freertos-kernel\include/task.h
+../source/traffic_servo.h:
 ../source/app_context.h:
 C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\freertos\freertos-kernel\include/FreeRTOS.h:
 C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\freertos\freertos-kernel\template/FreeRTOSConfig.h:
@@ -136,9 +137,10 @@ C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\driver
 C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_clock.h:
 C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_common.h:
 C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_gpio.h:
-C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\board/clock_config.h:
+C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_clock.h:
 C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\utilities\debug_console/fsl_debug_console.h:
 C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\component\serial_manager/fsl_component_serial_manager.h:
 C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\component\serial_manager/fsl_component_serial_port_uart.h:
 C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\component\uart/fsl_adapter_uart.h:
 ../source/traffic_lcd2004.h:
+C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\freertos\freertos-kernel\include/task.h:

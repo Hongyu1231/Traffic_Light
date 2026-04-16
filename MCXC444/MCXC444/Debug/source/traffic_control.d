@@ -67,6 +67,7 @@ source/traffic_control.o source/traffic_control.d: \
  C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\component\serial_manager/fsl_component_serial_port_uart.h \
  C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\component\uart/fsl_adapter_uart.h \
  ../source/traffic_gpio.h ../source/traffic_ldr.h \
+ ../source/traffic_lcd2004.h \
  C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\freertos\freertos-kernel\include/task.h
 ../source/traffic_control.h:
 ../source/app_context.h:
@@ -137,4 +138,5 @@ C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\compon
 C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\component\uart/fsl_adapter_uart.h:
 ../source/traffic_gpio.h:
 ../source/traffic_ldr.h:
+../source/traffic_lcd2004.h:
 C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\freertos\freertos-kernel\include/task.h:

@@ -6,4 +6,4 @@
 ../source/traffic_gpio.c:80:6:offPedestrianBuzzer	8	static
 ../source/traffic_gpio.c:85:6:togglePedestrianLight	8	static
 ../source/traffic_gpio.c:91:6:setPedestrianLightToRed	8	static
-../source/traffic_gpio.c:97:6:blinkPedestrianLight	16	static
+../source/traffic_gpio.c:97:6:blinkPedestrianLight	24	static

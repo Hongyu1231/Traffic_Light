@@ -5,6 +5,7 @@
 #define APP_CONTEXT_H_
 
 #include <stdint.h>
+#include <stdbool.h>
 
 #include "FreeRTOS.h"
 #include "queue.h"
@@ -27,13 +28,18 @@
 #define BAUD_RATE           9600U
 #define UART2_INT_PRIO      128U
 
+#define SERVO_PIN_PTE20     20U
+#define SERVO_OPEN_HOLD_MS  2000U
+#define LCD_I2C_SCL_PTB0    0U
+#define LCD_I2C_SDA_PTB1    1U
+
 #define MAX_MSG_LEN         256U
 #define QLEN                5U
 
 #define T_MAX_MS            15000U
 #define T_MIN_MS            5000U
-#define PEDESTRIAN_GREEN_MS 10000U
-#define EXTENDED_PEDESTRIAN_GREEN_MS 15000U
+#define PEDESTRIAN_GREEN_MS 5000U
+#define PEDESTRIAN_GREEN_EXTENDED_MS 10000U
 #define S_MAX_BAND          8
 #define S_MIN_BAND          1
 
@@ -58,10 +64,17 @@ typedef struct tm {
     char message[MAX_MSG_LEN];
 } TMessage;
 
+typedef enum trfid_state {
+    RFID_STATE_NONE = 0,
+    RFID_STATE_INVALID = 1,
+    RFID_STATE_VALID = 2
+} TRfidState;
+
 extern SemaphoreHandle_t sema;
 extern QueueHandle_t queue;
 extern volatile int current_speed_bands[3];
-extern volatile int authorized_rfid_request;
 extern volatile int lcd_countdown_seconds;
+extern volatile TRfidState current_rfid_state;
+extern volatile bool pedestrian_phase_active;
 
 #endif /* APP_CONTEXT_H_ */

@@ -73,7 +73,8 @@ source/2271Project.o source/2271Project.d: ../source/2271Project.c \
  C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\freertos\freertos-kernel\include/task.h \
  ../source/app_context.h ../source/traffic_button.h \
  ../source/traffic_control.h ../source/traffic_uart.h \
- ../source/traffic_gpio.h ../source/traffic_ldr.h ../source/traffic_lcd.h
+ ../source/traffic_gpio.h ../source/traffic_ldr.h ../source/traffic_lcd.h \
+ ../source/traffic_lcd2004.h
 C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\board/board.h:
 C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\board/clock_config.h:
 C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\drivers/fsl_common.h:
@@ -153,3 +154,4 @@ C:\Users\Yue\ Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\freert
 ../source/traffic_gpio.h:
 ../source/traffic_ldr.h:
 ../source/traffic_lcd.h:
+../source/traffic_lcd2004.h:
