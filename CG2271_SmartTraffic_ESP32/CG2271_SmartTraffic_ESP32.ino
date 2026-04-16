@@ -5,12 +5,12 @@ const char* ssid = "Hongyu";
 const char* password = "12345678";
 String LTASpeedBandApiKey = "RqgAcv3YQW+ZcgFjTmmGHQ==";
 
-// --- Global Resources ---
+// Global Resources
 SemaphoreHandle_t g_trafficMutex;
 SemaphoreHandle_t g_wifiMutex; 
 int g_speedBands[3] = {0, 0, 0}; 
 
-// --- RFID & MCXC Data ---
+// RFID & MCXC Data
 volatile int g_rfidUartFlag = 0; 
 volatile bool g_uploadDbFlag = false;
 volatile int g_mcxcValue = 0;
@@ -21,6 +21,7 @@ void taskPollRFID(void* pvParameters);
 void taskUARTComm(void* pvParameters);
 void taskTelegramAlert(void* pvParameters);
 void taskDatabaseUpload(void* pvParameters);
+void taskDisplayLCD(void* pvParameters);
 
 void setup() {
   Serial.begin(115200);
@@ -32,7 +33,7 @@ void setup() {
   
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) { delay(500); Serial.print("."); }
-  Serial.println("\n✅ WiFi Connected!");
+  Serial.println("\nWiFi Connected!");
 
   configTime(8 * 3600, 0, "pool.ntp.org", "time.nist.gov");
 
@@ -44,8 +45,9 @@ void setup() {
   xTaskCreate(taskPollRFID, "RFID_Task", 4096, NULL, 3, NULL);
   xTaskCreate(taskTelegramAlert, "Tele_Task", 10240, NULL, 1, NULL);
   xTaskCreate(taskDatabaseUpload, "Task_DB", 4096, NULL, 1, NULL);
+  xTaskCreate(taskDisplayLCD,    "LCD_Task",  4096,  NULL, 1, NULL);
 
-  Serial.println("🚀 System is ready.");
+  Serial.println("System is ready.");
 }
 
 void loop() {}
