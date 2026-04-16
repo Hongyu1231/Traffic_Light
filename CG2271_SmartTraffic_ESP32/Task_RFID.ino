@@ -20,7 +20,7 @@ void taskPollRFID(void* pvParameters) {
   
   // The specific UID authorized for "VIP" access
   const String targetUID = "534C0AA0005980";
-  Serial.println("✅ [RFID] Scanner Active.");
+  Serial.println("[RFID] Scanner Active.");
 
   for (;;) {
     // Check if a new card is present and can be read
@@ -34,21 +34,25 @@ void taskPollRFID(void* pvParameters) {
         }
         rfidUID.toUpperCase();
 
-        // Compare scanned UID with the authorized target
+        // ✨ MODIFICATION 1: Assign 2 or 1 based on UID validation
         if (rfidUID == targetUID) {
-          Serial.println("[RFID] 🟢 VIP identified");
-          // Signal the UART task to include the detection in the next broadcast
-          g_rfidUartFlag = 1; 
+          Serial.println("[RFID] VIP identified (Sending 2)");
+          g_rfidUartFlag = 2; // Verified
         } else {
-          Serial.printf("[RFID] 🔴 Unauthorised: %s\n", rfidUID.c_str());
+          Serial.printf("[RFID] Unauthorised: %s (Sending 1)\n", rfidUID.c_str());
+          g_rfidUartFlag = 1; // Unverified
         }
 
         // Halt the current card and stop encryption to prepare for the next scan
         mfrc522.PICC_HaltA();
         mfrc522.PCD_StopCrypto1();
         
-        // Cooldown period to prevent multiple triggers from a single tap
+        // Hold the '1' or '2' state for 1.5 seconds. 
+        // This acts as a signal pulse, giving the UART task enough time to read and transmit it.
         vTaskDelay(pdMS_TO_TICKS(1500)); 
+
+        // ✨ MODIFICATION 2: Reset to '0' (Idle) after the cooldown period
+        g_rfidUartFlag = 0; 
     }
     
     // Short polling delay to keep the task responsive without hogging the CPU

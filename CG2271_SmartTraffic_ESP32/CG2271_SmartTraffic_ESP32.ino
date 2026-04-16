@@ -21,7 +21,6 @@ void taskPollRFID(void* pvParameters);
 void taskUARTComm(void* pvParameters);
 void taskTelegramAlert(void* pvParameters);
 void taskDatabaseUpload(void* pvParameters);
-void taskDisplayLCD(void* pvParameters);
 
 void setup() {
   Serial.begin(115200);
@@ -45,7 +44,6 @@ void setup() {
   xTaskCreate(taskPollRFID, "RFID_Task", 4096, NULL, 3, NULL);
   xTaskCreate(taskTelegramAlert, "Tele_Task", 10240, NULL, 1, NULL);
   xTaskCreate(taskDatabaseUpload, "Task_DB", 4096, NULL, 1, NULL);
-  xTaskCreate(taskDisplayLCD,    "LCD_Task",  4096,  NULL, 1, NULL);
 
   Serial.println("System is ready.");
 }

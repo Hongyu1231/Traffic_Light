@@ -43,9 +43,9 @@ void taskTelegramAlert(void* pvParameters) {
           if (http.begin(teleClient, url)) {
             int httpCode = http.GET();
             if (httpCode == 200) {
-              Serial.printf("✅ [Tele] Warning sent! Speedband: %d\n", band);
+              Serial.printf("[Tele] Warning sent! Speedband: %d\n", band);
             } else {
-              Serial.printf("❌ [Tele] Warning failed. HTTP Code: %d\n", httpCode);
+              Serial.printf("[Tele] Warning failed. HTTP Code: %d\n", httpCode);
             }
             http.end(); 
           } 

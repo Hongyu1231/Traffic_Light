@@ -92,15 +92,15 @@ void taskLTA_Pipeline(void* pvParameters) {
 
               // Print the final 3 UNIQUE roads to the terminal
               Serial.println("\n====================================");
-              Serial.println("📡 [LTA API] Live Traffic Speeds (Unique Roads):");
+              Serial.println("[LTA API] Live Traffic Speeds (Unique Roads):");
               for (int i = 0; i < found; i++) {
-                Serial.printf("   ➡️ %s: Speedband %d\n", roadNames[i].c_str(), localSpeeds[i]);
+                Serial.printf("   %s: Speedband %d\n", roadNames[i].c_str(), localSpeeds[i]);
               }
               Serial.println("====================================\n");
 
             }
           } else {
-            Serial.printf("❌ [LTA] HTTP GET Failed, Code: %d\n", httpCode);
+            Serial.printf("[LTA] HTTP GET Failed, Code: %d\n", httpCode);
           }
           http.end();
         }

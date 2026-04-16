@@ -28,9 +28,9 @@ void taskDatabaseUpload(void* pvParameters) {
         int httpCode = http.POST(payload);
         
         if (httpCode == 200) {
-          Serial.printf("✅ [DB] Uploaded Speed: %d\n", speedToUpload);
+          Serial.printf("[DB] Uploaded Speed: %d\n", speedToUpload);
         } else {
-          Serial.printf("❌ [DB] Post Failed: %d\n", httpCode);
+          Serial.printf("[DB] Post Failed: %d\n", httpCode);
         }
         
         http.end();
