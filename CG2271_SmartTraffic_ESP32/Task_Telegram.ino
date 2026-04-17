@@ -19,7 +19,7 @@ void taskTelegramAlert(void* pvParameters) {
       int band = g_mcxcValue;
       g_newMcxcData = false; // Reset flag immediately to prevent missing future data
 
-      // --- 🚨 Core Logic: Trigger alert ONLY if speed > 7 and WiFi is connected ---
+      // --- Core Logic: Trigger alert ONLY if speed > 7 and WiFi is connected ---
       if (band > 7 && WiFi.status() == WL_CONNECTED) {
         
         // Take WiFi mutex ONLY when an alert needs to be sent (Optimizes performance)
@@ -32,7 +32,7 @@ void taskTelegramAlert(void* pvParameters) {
           // Build the warning message
           String messageText = "🚨%20*TRAFFIC%20WARNING*%20🚨%0A";
           messageText += "High%20Speed%20Detected!%0A";
-          messageText += "Current%20Speedband:%20" + String(band);
+          messageText += "Current%20Speed Range:%20" + String(band);
 
           // Construct the Telegram API URL
           String url = "https://api.telegram.org/bot" + String(BOT_TOKEN) + 

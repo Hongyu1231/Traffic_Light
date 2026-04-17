@@ -1,8 +1,8 @@
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
 
-const char* ssid = "iPhone (6)"; 
-const char* password = "Tan96239287";
+const char* ssid = "Hongyu"; 
+const char* password = "12345678";
 String LTASpeedBandApiKey = "RqgAcv3YQW+ZcgFjTmmGHQ==";
 
 // Global Resources

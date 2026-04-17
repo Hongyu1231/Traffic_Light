@@ -11,8 +11,8 @@ const MONGO_URI = 'mongodb+srv://CG2271:197772Czz1664@cluster.vwct9sy.mongodb.ne
 
 // 1. Connect to Database
 mongoose.connect(MONGO_URI)
-  .then(() => console.log('✅ MongoDB Connected!'))
-  .catch(err => console.error('❌ MongoDB Connection Error:', err));
+  .then(() => console.log('MongoDB Connected!'))
+  .catch(err => console.error('MongoDB Connection Error:', err));
 
 // 2. Define Data Schema
 const TelemetrySchema = new mongoose.Schema({
@@ -29,10 +29,10 @@ app.post('/api/telemetry', async (req, res) => {
     const newData = new Telemetry({ sessionId, speedband });
     await newData.save();
     
-    console.log(`📥 Received ESP32 Data: Session=${sessionId}, Speedband=${speedband}`);
+    console.log(`Received ESP32 Data: Session=${sessionId}, Speedband=${speedband}`);
     res.status(200).send('Data saved successfully');
   } catch (error) {
-    console.error('❌ Data Save Error:', error);
+    console.error('Data Save Error:', error);
     res.status(500).send('Internal Server Error');
   }
 });
@@ -44,12 +44,12 @@ app.get('/api/telemetry', async (req, res) => {
     const data = await Telemetry.find().sort({ timestamp: -1 }).limit(30);
     res.status(200).json(data);
   } catch (error) {
-    console.error('❌ Fetch Data Error:', error);
+    console.error('Fetch Data Error:', error);
     res.status(500).json({ error: 'Failed to fetch data' });
   }
 });
 
 // 5. Start Server
 app.listen(3000, '0.0.0.0', () => {
-  console.log('🚀 Server started! Listening on port 3000...');
+  console.log('Server started! Listening on port 3000...');
 });

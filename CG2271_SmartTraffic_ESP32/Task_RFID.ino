@@ -34,7 +34,7 @@ void taskPollRFID(void* pvParameters) {
         }
         rfidUID.toUpperCase();
 
-        // ✨ MODIFICATION 1: Assign 2 or 1 based on UID validation
+        // MODIFICATION 1: Assign 2 or 1 based on UID validation
         if (rfidUID == targetUID) {
           Serial.println("[RFID] VIP identified (Sending 2)");
           g_rfidUartFlag = 2; // Verified
@@ -51,7 +51,6 @@ void taskPollRFID(void* pvParameters) {
         // This acts as a signal pulse, giving the UART task enough time to read and transmit it.
         vTaskDelay(pdMS_TO_TICKS(1500)); 
 
-        // ✨ MODIFICATION 2: Reset to '0' (Idle) after the cooldown period
         g_rfidUartFlag = 0; 
     }
     
