@@ -45,6 +45,7 @@ int main(void)
     PRINTF("Intelligent Traffic System - MCXC444 Booting\r\n");
 
     sema = xSemaphoreCreateBinary();
+    stateMutex = xSemaphoreCreateMutex();
     queue = xQueueCreate(QLEN, sizeof(TMessage));
 
 

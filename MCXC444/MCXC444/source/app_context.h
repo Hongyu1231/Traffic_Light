@@ -36,8 +36,9 @@
 
 #define T_MAX_MS            15000U
 #define T_MIN_MS            5000U
-#define PEDESTRIAN_GREEN_MS 5000U
-#define PEDESTRIAN_GREEN_EXTENDED_MS 10000U
+#define PEDESTRIAN_GREEN_SOLID_MS        5000U
+#define PEDESTRIAN_GREEN_BLINK_MS        5000U
+#define PEDESTRIAN_GREEN_BLINK_EXTENDED_MS 10000U
 #define S_MAX_BAND          8
 #define S_MIN_BAND          1
 
@@ -69,10 +70,12 @@ typedef enum trfid_state {
 } TRfidState;
 
 extern SemaphoreHandle_t sema;
+extern SemaphoreHandle_t stateMutex;
 extern QueueHandle_t queue;
 extern volatile int current_speed_bands[3];
 extern volatile int lcd_countdown_seconds;
 extern volatile TRfidState current_rfid_state;
 extern volatile bool pedestrian_phase_active;
+extern volatile bool pedestrian_button_latched;
 
 #endif /* APP_CONTEXT_H_ */

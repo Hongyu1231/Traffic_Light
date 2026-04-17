@@ -159,7 +159,10 @@ void PORTA_IRQHandler(void)
 
     if ((PORTA->ISFR & (1UL << SWITCH_PIN)) != 0U) {
         PORTA->ISFR |= (1UL << SWITCH_PIN);
-        xSemaphoreGiveFromISR(sema, &xHigherPriorityTaskWoken);
-        portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+        if (!pedestrian_button_latched) {
+            pedestrian_button_latched = true;
+            xSemaphoreGiveFromISR(sema, &xHigherPriorityTaskWoken);
+            portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+        }
     }
 }

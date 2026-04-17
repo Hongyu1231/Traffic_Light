@@ -10,4 +10,4 @@ C:\Users\Yue Yang\Documents\MCUXpressoIDE_25.6.136\workspace\2271Projecy\CMSIS/c
 ../source/traffic_uart.c:156:6:sendSpeedBand	536	static
 ../source/traffic_uart.c:175:6:initUART2	24	static
 ../source/traffic_uart.c:210:6:UART2_FLEXIO_IRQHandler	272	static
-../source/traffic_uart.c:244:6:parseUARTTask	568	static
+../source/traffic_uart.c:244:6:parseUARTTask	576	static

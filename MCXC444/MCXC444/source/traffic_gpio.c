@@ -94,6 +94,20 @@ void setPedestrianLightToRed(void)
     GPIOC->PCOR = (1UL << PEDESTRIAN_GREEN);
 }
 
+void holdPedestrianGreen(uint32_t duration_seconds)
+{
+    if (duration_seconds == 0U) {
+        setLCDCountdownValue(0);
+        return;
+    }
+
+    GPIOC->PCOR = (1UL << PEDESTRIAN_RED);
+    GPIOC->PSOR = (1UL << PEDESTRIAN_GREEN);
+    offPedestrianBuzzer();
+    setLCDCountdownValue(0);
+    vTaskDelay(pdMS_TO_TICKS(duration_seconds * 1000U));
+}
+
 void blinkPedestrianLight(uint32_t duration_seconds)
 {
     uint32_t remaining_seconds;

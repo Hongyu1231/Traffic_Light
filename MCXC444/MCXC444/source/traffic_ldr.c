@@ -4,9 +4,11 @@
 
 #define PHOTO_ADC_CHANNEL      14U
 #define PHOTO_ADC_MAX          4095U
+#define PHOTO_BRIGHT_RAW       1796U
+#define PHOTO_DARK_RAW         2675U
 
-#define YELLOW_TIME_MIN_MS     3000U
-#define YELLOW_TIME_MAX_MS     7000U
+#define YELLOW_TIME_MIN_MS     5000U
+#define YELLOW_TIME_MAX_MS     15000U
 
 void initPhotoresistor(void)
 {
@@ -53,20 +55,20 @@ uint16_t readPhotoresistorAverage(void)
 
 uint32_t mapPhotoToYellowDelay(uint16_t raw)
 {
-    uint32_t darkness;
+    uint32_t scaled_raw;
     uint32_t range;
 
-    /* With 100k to 3.3V and the LDR to GND:
-       brighter light -> lower ADC reading
-       darker light   -> higher ADC reading
-       so raw already represents darkness. */
-    darkness = raw;
-
-    if (darkness > PHOTO_ADC_MAX) {
-        darkness = PHOTO_ADC_MAX;
+    if (raw <= PHOTO_BRIGHT_RAW) {
+        return YELLOW_TIME_MIN_MS;
     }
+    if (raw >= PHOTO_DARK_RAW) {
+        return YELLOW_TIME_MAX_MS;
+    }
+
+    scaled_raw = (uint32_t)raw - PHOTO_BRIGHT_RAW;
 
     range = YELLOW_TIME_MAX_MS - YELLOW_TIME_MIN_MS;
 
-    return YELLOW_TIME_MIN_MS + ((darkness * range) / PHOTO_ADC_MAX);
+    return YELLOW_TIME_MIN_MS +
+           ((scaled_raw * range) / (PHOTO_DARK_RAW - PHOTO_BRIGHT_RAW));
 }
