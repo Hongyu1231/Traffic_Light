@@ -24,7 +24,7 @@ void taskDatabaseUpload(void* pvParameters) {
         http.begin(serverUrl);
         http.addHeader("Content-Type", "application/json");
 
-        String payload = "{\"sessionId\":\"" + currentSessionId + "\", \"speedband\":" + String(speedToUpload) + "}";
+        String payload = "{\"sessionId\":\"" + currentSessionId + "\", \"speedrange\":" + String(speedToUpload) + "}";
         int httpCode = http.POST(payload);
         
         if (httpCode == 200) {

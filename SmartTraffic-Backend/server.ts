@@ -17,7 +17,7 @@ mongoose.connect(MONGO_URI)
 // 2. Define Data Schema
 const TelemetrySchema = new mongoose.Schema({
   sessionId: { type: String, required: true },
-  speedband: { type: Number, required: true },
+  speedrange: { type: Number, required: true },
   timestamp: { type: Date, default: Date.now } 
 });
 const Telemetry = mongoose.model('Telemetry', TelemetrySchema);
@@ -25,11 +25,11 @@ const Telemetry = mongoose.model('Telemetry', TelemetrySchema);
 // 3. POST API: Receive telemetry data from ESP32
 app.post('/api/telemetry', async (req, res) => {
   try {
-    const { sessionId, speedband } = req.body;
-    const newData = new Telemetry({ sessionId, speedband });
+    const { sessionId, speedrange } = req.body;
+    const newData = new Telemetry({ sessionId, speedrange });
     await newData.save();
     
-    console.log(`Received ESP32 Data: Session=${sessionId}, Speedband=${speedband}`);
+    console.log(`Received ESP32 Data: Session=${sessionId}, speedrange=${speedrange}`);
     res.status(200).send('Data saved successfully');
   } catch (error) {
     console.error('Data Save Error:', error);

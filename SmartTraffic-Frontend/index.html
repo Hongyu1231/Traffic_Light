@@ -59,7 +59,7 @@
                 // Prepare data for Chart.js (Take up to 15 records from THIS session only)
                 const plotData = sessionOnlyData.slice(0, 15).reverse();
                 const labels = plotData.map(d => new Date(d.timestamp).toLocaleTimeString());
-                const values = plotData.map(d => d.speedband);
+                const values = plotData.map(d => d.speedrange);
 
                 // Render or Update Chart
                 const ctx = document.getElementById('mainChart').getContext('2d');
@@ -70,7 +70,7 @@
                     data: {
                         labels: labels,
                         datasets: [{
-                            label: 'Mapped Vehicle Speed (Speedband)',
+                            label: 'Mapped Vehicle Speed (speedrange)',
                             data: values,
                             borderColor: '#06b6d4',
                             backgroundColor: 'rgba(6, 182, 212, 0.1)',
