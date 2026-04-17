@@ -11,6 +11,7 @@ void onPedestrianBuzzer(void);
 void offPedestrianBuzzer(void);
 void togglePedestrianLight(void);
 void setPedestrianLightToRed(void);
+void holdPedestrianGreen(uint32_t duration_seconds);
 void blinkPedestrianLight(uint32_t duration_seconds);
 
 #endif /* TRAFFIC_GPIO_H_ */

@@ -1,6 +1,7 @@
 #include "app_context.h"
 
 SemaphoreHandle_t sema = NULL;
+SemaphoreHandle_t stateMutex = NULL;
 QueueHandle_t queue = NULL;
 volatile int current_speed_bands[3] = {0, 0, 0};
 volatile int lcd_countdown_seconds = 0;

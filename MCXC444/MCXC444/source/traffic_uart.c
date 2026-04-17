@@ -253,6 +253,8 @@ void parseUARTTask(void *p)
             int s2 = 0;
             int s3 = 0;
             int rfid = 0;
+            bool update_lcd_status = false;
+            TLcd2004Status next_lcd_status = LCD2004_STATUS_IDLE;
 
             msg.message[strcspn(msg.message, "\r\n")] = '\0';
             PRINTF("UART RX encrypted: %s\r\n", msg.message);
@@ -265,6 +267,10 @@ void parseUARTTask(void *p)
             PRINTF("UART RX decrypted: %s\r\n", plain_message);
 
             if (sscanf(plain_message, "%d,%d,%d,%d", &s1, &s2, &s3, &rfid) == 4) {
+                if (xSemaphoreTake(stateMutex, portMAX_DELAY) != pdTRUE) {
+                    continue;
+                }
+
                 current_speed_bands[0] = s1;
                 current_speed_bands[1] = s2;
                 current_speed_bands[2] = s3;
@@ -275,16 +281,24 @@ void parseUARTTask(void *p)
                         /* Keep a valid user latched until the pedestrian cycle ends. */
                     } else if (rfid == 2) {
                         current_rfid_state = RFID_STATE_VALID;
-                        lcd2004SetStatus(LCD2004_STATUS_PROCEED);
+                        next_lcd_status = LCD2004_STATUS_PROCEED;
+                        update_lcd_status = true;
                     } else if (rfid == 1) {
                         current_rfid_state = RFID_STATE_INVALID;
-                        lcd2004SetStatus(LCD2004_STATUS_INVALID);
+                        next_lcd_status = LCD2004_STATUS_INVALID;
+                        update_lcd_status = true;
                     } else {
                         current_rfid_state = RFID_STATE_NONE;
-                        lcd2004SetStatus(LCD2004_STATUS_IDLE);
+                        next_lcd_status = LCD2004_STATUS_IDLE;
+                        update_lcd_status = true;
                     }
                 }
                 taskEXIT_CRITICAL();
+                xSemaphoreGive(stateMutex);
+
+                if (update_lcd_status) {
+                    lcd2004SetStatus(next_lcd_status);
+                }
 
                 PRINTF("Updated Traffic Speeds -> R1: %d, R2: %d, R3: %d, RFID: %d\r\n",
                        current_speed_bands[0],
